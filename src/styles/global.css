@@ -1,1 +1,14 @@
+@import "@fontsource/fira-sans";
+@import "@fontsource/fira-mono";
+@import "@fontsource/archivo-black";
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Fira Sans";
+  --font-mono: "Fira Mono";
+  --font-title: "Archivo Black";
+}
+
+body {
+  font-family: var(--font-sans);
+}

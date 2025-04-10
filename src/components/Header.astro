@@ -1,0 +1,59 @@
+---
+const currentPath = Astro.url.pathname;
+const navItems = [
+  { name: "organizadores", href: "/organizadores" },
+  { name: "patrocinadores", href: "/patrocinadores" },
+  { name: "calendario", href: "/calendario" },
+  { name: "preguntas frecuentes", href: "/preguntas-frecuentes" },
+  { name: "código de conducta", href: "/codigo-de-conducta" },
+];
+---
+
+<header
+  class="fixed top-0 w-[100%] flex items-center justify-between px-4 py-2"
+>
+  <div id="header-logo">
+    <a href="/">CIPC 2025</a>
+  </div>
+  <nav class="font-mono text-white">
+    <ul class="flex gap-4">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              class={item.href == currentPath ? "nav-active" : ""}
+              href={item.href}
+            >
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="flex justify-end" id="header-social">SOCIAL</div>
+</header>
+
+<style>
+  @import "tailwindcss";
+
+  header > :first-child,
+  header > :last-child {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  .nav-active,
+  nav a:hover {
+    @apply text-red-600;
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 10px;
+  }
+  .nav-active::before {
+    content: "[";
+  }
+  .nav-active::after {
+    content: "]";
+  }
+</style>
