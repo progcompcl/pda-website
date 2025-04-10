@@ -4,9 +4,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Fira Sans";
-  --font-mono: "Fira Mono";
-  --font-title: "Archivo Black";
+  --font-sans: "Fira Sans", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  --font-mono: "Fira Mono", "Courier New", Courier, monospace;
+  --font-title: "Archivo Black", "Arial Black", sans-serif;
 }
 
 body {
