@@ -1,9 +1,10 @@
 ---
+import "../styles/global.css";
 const currentPath = Astro.url.pathname;
 const navItems = [
   { name: "organizadores", href: "/organizadores" },
   { name: "patrocinadores", href: "/patrocinadores" },
-  { name: "calendario", href: "/calendario" },
+  { name: "cronograma", href: "/cronograma" },
   { name: "preguntas frecuentes", href: "/preguntas-frecuentes" },
   { name: "código de conducta", href: "/codigo-de-conducta" },
 ];
@@ -12,7 +13,7 @@ const navItems = [
 <header
   class="fixed top-0 w-[100%] flex items-center justify-between px-4 py-2"
 >
-  <div id="header-logo">
+  <div id="header-logo" class="grow-1 basis-0">
     <a href="/">CIPC 2025</a>
   </div>
   <nav class="font-mono text-white">
@@ -21,7 +22,11 @@ const navItems = [
         navItems.map((item) => (
           <li>
             <a
-              class={item.href == currentPath ? "nav-active" : ""}
+              class:list={[
+                "underline-offset-10 decoration-5",
+                "hover:text-primary hover:underline",
+                item.href == currentPath ? "text-primary underline" : "",
+              ]}
               href={item.href}
             >
               {item.name}
@@ -31,29 +36,5 @@ const navItems = [
       }
     </ul>
   </nav>
-  <div class="flex justify-end" id="header-social"></div>
+  <div class="flex justify-end grow-1 basis-0" id="header-social"></div>
 </header>
-
-<style>
-  @import "tailwindcss";
-
-  header > :first-child,
-  header > :last-child {
-    flex-grow: 1;
-    flex-basis: 0;
-  }
-
-  .nav-active,
-  nav a:hover {
-    @apply text-red-600;
-    text-decoration: underline;
-    text-decoration-thickness: 5px;
-    text-underline-offset: 10px;
-  }
-  .nav-active::before {
-    content: "[";
-  }
-  .nav-active::after {
-    content: "]";
-  }
-</style>
