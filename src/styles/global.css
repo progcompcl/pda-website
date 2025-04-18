@@ -1,16 +1,23 @@
-@import "@fontsource/fira-sans";
-@import "@fontsource/fira-mono";
+@import "@fontsource/inter";
+@import "@fontsource/jetbrains-mono";
 @import "@fontsource/archivo-black";
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Fira Sans", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
-  --font-mono: "Fira Mono", "Courier New", Courier, monospace;
+  --font-sans: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", Courier, monospace;
   --font-title: "Archivo Black", "Arial Black", sans-serif;
 
-  --color-primary: #ffa600;
+  --color-logo-orange: #ffa600;
+  --color-logo-blue: #15214c;
+
+  --header-height: 4rem;
 }
 
 body {
   font-family: var(--font-sans);
+}
+
+main {
+  margin-top: var(--header-height);
 }

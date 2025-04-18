@@ -10,8 +10,8 @@
 	},
 	"dependencies": {
 		"@fontsource/archivo-black": "^5.2.5",
-		"@fontsource/fira-mono": "^5.2.5",
-		"@fontsource/fira-sans": "^5.2.5",
+		"@fontsource/inter": "^5.2.5",
+		"@fontsource/jetbrains-mono": "^5.2.5",
 		"@lucide/astro": "^0.487.0",
 		"@tailwindcss/vite": "^4.1.1",
 		"astro": "^5.5.6",
