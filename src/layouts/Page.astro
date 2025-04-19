@@ -1,0 +1,11 @@
+---
+import Header from "../components/Header.astro";
+import Base from "../layouts/Base.astro";
+---
+
+<Base>
+  <Header />
+  <main class="flex flex-col items-center">
+    <slot />
+  </main>
+</Base>
