@@ -1,27 +1,41 @@
 ---
 interface Props {
-  showBackground: true;
-  showLogo: true;
+  variant?: "default" | "home";
 }
-const { showBackground, showLogo } = Astro.props;
+const { variant = "default" } = Astro.props;
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
 
+const headerClasses = {
+  default: "bg-white",
+  home: "bg-white/2 backdrop-filter backdrop-blue",
+}[variant];
+
+const navActiveClasses = "nav-active text-logo-orange";
+const navLinkClasses = {
+  default: "text-black hover:text-logo-orange",
+  home: "text-white hover:text-logo-orange",
+}[variant];
+
+const showLogo = variant == "default";
 const currentPath = Astro.url.pathname;
 const navItems = [
   { name: "acerca", href: "/acerca" },
   { name: "cronograma", href: "/cronograma" },
   { name: "patrocinadores", href: "/patrocinadores" },
   { name: "código de conducta", href: "/codigo-de-conducta" },
-];
+].map((item) => ({
+  ...item,
+  classes: item.href === currentPath ? navActiveClasses : "",
+}));
 ---
 
 <header
   class:list={[
     "fixed top-0 w-[100%] h-[var(--header-height)]",
     "flex items-center justify-between px-4 py-2",
-    showBackground ? "bg-white" : "bg-white/2 backdrop-filter backdrop-blue",
     "border-solid",
+    headerClasses,
   ]}
 >
   <div id="header-logo" class="grow-1 basis-0">
@@ -37,9 +51,9 @@ const navItems = [
             <a
               class:list={[
                 "nav-link",
-                "text-white hover:text-logo-orange",
                 "text-xs sm:text-sm lg:text-lg",
-                item.href == currentPath ? "text-logo-orange underline" : "",
+                navLinkClasses,
+                item.classes,
               ]}
               href={item.href}
             >
@@ -67,10 +81,12 @@ const navItems = [
     margin-left: -0.7rem;
     visibility: hidden;
   }
-  .nav-link:hover::before {
+  .nav-link:hover::before,
+  .nav-active::before {
     visibility: visible;
   }
-  .nav-link:hover::after {
+  .nav-link:hover::after,
+  .nav-active::after {
     visibility: visible;
   }
 </style>
