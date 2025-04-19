@@ -1,31 +1,45 @@
 ---
-import "../styles/global.css";
+interface Props {
+  showBackground: true;
+  showLogo: true;
+}
+const { showBackground, showLogo } = Astro.props;
+import { Image } from "astro:assets";
+import logo from "../assets/logo.svg";
+
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: "organizadores", href: "/organizadores" },
-  { name: "patrocinadores", href: "/patrocinadores" },
+  { name: "acerca", href: "/acerca" },
   { name: "cronograma", href: "/cronograma" },
-  { name: "preguntas frecuentes", href: "/preguntas-frecuentes" },
+  { name: "patrocinadores", href: "/patrocinadores" },
   { name: "código de conducta", href: "/codigo-de-conducta" },
 ];
 ---
 
 <header
-  class="fixed top-0 w-[100%] flex items-center justify-between px-4 py-2"
+  class:list={[
+    "fixed top-0 w-[100%] h-[var(--header-height)]",
+    "flex items-center justify-between px-4 py-2",
+    showBackground ? "bg-white" : "bg-white/2 backdrop-filter backdrop-blue",
+    "border-solid",
+  ]}
 >
   <div id="header-logo" class="grow-1 basis-0">
-    <a href="/">CIPC 2025</a>
+    <a href="/">
+      {showLogo && <Image src={logo} height="64" alt="Logo CIPC" />}
+    </a>
   </div>
-  <nav class="font-mono text-white">
-    <ul class="flex gap-6">
+  <nav class="font-mono">
+    <ul class="flex gap-0">
       {
         navItems.map((item) => (
           <li>
             <a
               class:list={[
-                "underline-offset-10 decoration-5",
-                "hover:text-primary hover:underline",
-                item.href == currentPath ? "text-primary underline" : "",
+                "nav-link",
+                "text-white hover:text-logo-orange",
+                "text-xs sm:text-sm lg:text-lg",
+                item.href == currentPath ? "text-logo-orange underline" : "",
               ]}
               href={item.href}
             >
@@ -38,3 +52,25 @@ const navItems = [
   </nav>
   <div class="flex justify-end grow-1 basis-0" id="header-social"></div>
 </header>
+
+<style>
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::before {
+    content: "[";
+    margin-right: -0.7rem;
+    visibility: hidden;
+  }
+  .nav-link::after {
+    content: "]";
+    margin-left: -0.7rem;
+    visibility: hidden;
+  }
+  .nav-link:hover::before {
+    visibility: visible;
+  }
+  .nav-link:hover::after {
+    visibility: visible;
+  }
+</style>

@@ -19,5 +19,10 @@ body {
 }
 
 main {
-  margin-top: var(--header-height);
+  padding-top: var(--header-height);
+}
+
+::selection {
+  background-color: var(--color-logo-blue); /* cyan-ish blue */
+  color: white;
 }
