@@ -2,13 +2,25 @@
 @import "@fontsource/jetbrains-mono";
 @import "@fontsource/archivo-black";
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --font-sans: "Inter", "Segoe UI", "Roboto", "Helvetica Neue", sans-serif;
   --font-mono: "JetBrains Mono", "Courier New", Courier, monospace;
   --font-title: "Archivo Black", "Arial Black", sans-serif;
 
-  --color-logo-orange: #ffa600;
+  --color-logo-orange: #ffa600; /* 500 Default */
+  --color-logo-orange-50: #fffcea;
+  --color-logo-orange-100: #fff5c5;
+  --color-logo-orange-200: #ffec85;
+  --color-logo-orange-300: #ffdb46;
+  --color-logo-orange-400: #ffc81b;
+  --color-logo-orange-500: #ffa600;
+  --color-logo-orange-600: #e27d00;
+  --color-logo-orange-700: #bb5602;
+  --color-logo-orange-800: #984208;
+  --color-logo-orange-900: #7c370b;
+  --color-logo-orange-950: #481b00;
   --color-logo-blue: #15214c;
 
   --header-height: 4rem;
@@ -20,6 +32,33 @@ body {
 
 main {
   padding-top: var(--header-height);
+
+  a {
+    color: var(--color-blue-600);
+    text-decoration: underline;
+  }
+
+  a:link {
+    color: var(--color-blue-600);
+  }
+
+  a:visited {
+    color: var(--color-purple-600);
+  }
+
+  a:focus {
+    color: var(--color-blue-800);
+    outline: 2px solid var(--color-blue-300);
+    outline-offset: 2px;
+  }
+
+  a:hover {
+    color: var(--color-blue-700);
+  }
+
+  a:active {
+    color: var(--color-red-600);
+  }
 }
 
 ::selection {

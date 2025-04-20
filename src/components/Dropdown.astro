@@ -1,0 +1,75 @@
+---
+type NavItem = {
+  label: string;
+  href: string;
+};
+
+interface Props {
+  items: NavItem[];
+  id: string;
+  itemClass: string;
+}
+
+const { items, id, itemClass } = Astro.props;
+---
+
+<div class="relative w-full">
+  <button
+    data-dropdown-id={id}
+    class="dropdown-toggle"
+    aria-expanded="false"
+    aria-controls={`${id}-menu`}
+  >
+    <slot />
+  </button>
+
+  <div
+    data-dropdown-id={id}
+    class="dropdown-menu hidden absolute -left-50 bg-white rounded shadow-md mt-2 z-50"
+  >
+    <ul>
+      {
+        items.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class:list={[
+                itemClass,
+                "block px-4 py-2 text-gray-800 hover:bg-gray-200",
+              ]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll("button.dropdown-toggle");
+  buttons.forEach((button) => {
+    if (!(button instanceof HTMLElement)) return;
+
+    const id = button.dataset.dropdownId;
+    const menu = document.querySelector(
+      `.dropdown-menu[data-dropdown-id="${id}"]`,
+    );
+
+    if (!menu) return;
+
+    button.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    document.addEventListener("click", (ev) => {
+      if (
+        !button.contains(ev.target as Node) &&
+        !menu.contains(ev.target as Node)
+      ) {
+        menu.classList.add("hidden");
+      }
+    });
+  });
+</script>

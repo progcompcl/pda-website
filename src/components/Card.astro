@@ -1,0 +1,11 @@
+---
+const { title, class: customClass = "" } = Astro.props;
+---
+
+<div
+  class={`rounded-sm shadow-sm border-1 border-black/15 pt-2 px-4 pb-4 ${customClass}`}
+>
+  {title && <h2 class="text-xl my-2! mb-2">{title}</h2>}
+  <div class="border-t border-gray-300 my-2"></div>
+  <div><slot /></div>
+</div>

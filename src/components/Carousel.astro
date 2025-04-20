@@ -1,0 +1,83 @@
+---
+import { ChevronLeft, ChevronRight } from "@lucide/astro";
+import { Image } from "astro:assets";
+const imageModules = import.meta.glob("../assets/años-anteriores/*.jpg", {
+  eager: true,
+});
+
+// Create a mapping from year to description
+const descriptions: Record<string, string> = {
+  "2015": "2015, Valparaíso",
+  "2016": "2016, La Serena",
+  "2017": "2017, Concepción",
+  "2018": "2018, Santiago",
+  "2019": "2019, Valdivia",
+  "2023": "2023, Valparaíso",
+  "2024": "2024, Concepción",
+};
+
+const images = Object.entries(imageModules).map(([path, mod]) => {
+  const filename = path.split("/").pop() as string; // e.g., "2015-valparaiso.jpg"
+  const [year] = filename.split("-"); // get "2015"
+
+  return {
+    year,
+    src: mod.default,
+    description: descriptions[year] || "",
+  };
+});
+---
+
+<div
+  class="embla not-prose relative w-full h-[350px] rounded-xl mb-12 overflow-hidden"
+>
+  <div class="embla__viewport h-full">
+    <div class="embla__container flex h-full">
+      {
+        images.map((image) => (
+          <div class="embla__slide min-w-0 relative flex-none w-full h-full">
+            <Image
+              src={image.src}
+              alt={image.description}
+              class="w-full object-cover"
+            />
+            <span class="absolute left-5 bottom-5 text-white z-10">
+              {image.description}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div
+    class="embla__controls absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center gap-4"
+  >
+    <button
+      class="embla__prev bg-white/50 rounded-full cursor-pointer flex justify-center items-center"
+      ><ChevronLeft class="h-12 w-12" /></button
+    >
+    <button
+      class="embla__next bg-white/50 rounded-full cursor-pointer flex justiy-center items-center"
+      ><ChevronRight class="h-12 w-12" /></button
+    >
+  </div>
+</div>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+
+  // Grab wrapper nodes
+  const rootNode = document.querySelector(".embla");
+  const viewportNode = rootNode.querySelector(".embla__viewport");
+
+  // Grab button nodes
+  const prevButtonNode = rootNode.querySelector(".embla__prev");
+  const nextButtonNode = rootNode.querySelector(".embla__next");
+
+  // Initialize the carousel
+  const embla = EmblaCarousel(viewportNode);
+
+  // Add click listeners
+  prevButtonNode.addEventListener("click", embla.scrollPrev, false);
+  nextButtonNode.addEventListener("click", embla.scrollNext, false);
+</script>

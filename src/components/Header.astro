@@ -5,25 +5,28 @@ interface Props {
 const { variant = "default" } = Astro.props;
 import { Image } from "astro:assets";
 import logo from "../assets/logo.svg";
+import logoSmall from "../assets/logo-small.svg";
+import { Menu } from "@lucide/astro";
+import Dropdown from "./Dropdown.astro";
 
 const headerClasses = {
-  default: "bg-white",
+  default: "bg-gray-50 shadow-md",
   home: "bg-white/2 backdrop-filter backdrop-blue",
 }[variant];
 
-const navActiveClasses = "nav-active text-logo-orange";
+const navActiveClasses = "nav-active text-logo-orange-600";
 const navLinkClasses = {
-  default: "text-black hover:text-logo-orange",
-  home: "text-white hover:text-logo-orange",
+  default: "text-black hover:text-logo-orange-600",
+  home: "text-white hover:text-logo-orange-600",
 }[variant];
 
 const showLogo = variant == "default";
 const currentPath = Astro.url.pathname;
 const navItems = [
-  { name: "acerca", href: "/acerca" },
-  { name: "cronograma", href: "/cronograma" },
-  { name: "patrocinadores", href: "/patrocinadores" },
-  { name: "código de conducta", href: "/codigo-de-conducta" },
+  { label: "acerca", href: "/acerca" },
+  { label: "cronograma", href: "/cronograma" },
+  { label: "patrocinadores", href: "/patrocinadores" },
+  { label: "código de conducta", href: "/codigo-de-conducta" },
 ].map((item) => ({
   ...item,
   classes: item.href === currentPath ? navActiveClasses : "",
@@ -40,11 +43,22 @@ const navItems = [
 >
   <div id="header-logo" class="grow-1 basis-0">
     <a href="/">
-      {showLogo && <Image src={logo} height="64" alt="Logo CIPC" />}
+      {
+        showLogo && (
+          <>
+            <div class="hidden lg:block">
+              <Image src={logo} height="64" alt="Logo CIPC" />
+            </div>
+            <div class="block lg:hidden">
+              <Image src={logoSmall} height="64" alt="Logo CIPC" />
+            </div>
+          </>
+        )
+      }
     </a>
   </div>
   <nav class="font-mono">
-    <ul class="flex gap-0">
+    <ul class="hidden lg:flex gap-0">
       {
         navItems.map((item) => (
           <li>
@@ -57,36 +71,42 @@ const navItems = [
               ]}
               href={item.href}
             >
-              {item.name}
+              {item.label}
             </a>
           </li>
         ))
       }
     </ul>
   </nav>
-  <div class="flex justify-end grow-1 basis-0" id="header-social"></div>
-</header>
+  <div class="flex justify-end grow-1 basis-0" id="header-right">
+    <nav class="lg:hidden">
+      <Dropdown items={navItems} id="testid" itemClass="font-mono">
+        <Menu class="w-12 h-12" />
+      </Dropdown>
+    </nav>
+  </div>
 
-<style>
-  .nav-link {
-    position: relative;
-  }
-  .nav-link::before {
-    content: "[";
-    margin-right: -0.7rem;
-    visibility: hidden;
-  }
-  .nav-link::after {
-    content: "]";
-    margin-left: -0.7rem;
-    visibility: hidden;
-  }
-  .nav-link:hover::before,
-  .nav-active::before {
-    visibility: visible;
-  }
-  .nav-link:hover::after,
-  .nav-active::after {
-    visibility: visible;
-  }
-</style>
+  <style>
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::before {
+      content: "[";
+      margin-right: -0.7rem;
+      visibility: hidden;
+    }
+    .nav-link::after {
+      content: "]";
+      margin-left: -0.7rem;
+      visibility: hidden;
+    }
+    .nav-link:hover::before,
+    .nav-active::before {
+      visibility: visible;
+    }
+    .nav-link:hover::after,
+    .nav-active::after {
+      visibility: visible;
+    }
+  </style>
+</header>
