@@ -1,10 +1,14 @@
 ---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
 import Header from "../components/Header.astro";
 import Base from "../layouts/Base.astro";
 import "../styles/page.css";
 ---
 
-<Base>
+<Base title={title}>
   <Header />
   <main>
     <slot name="before-article" />
