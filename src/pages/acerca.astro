@@ -1,0 +1,145 @@
+---
+title: "about";
+import Page from "../layouts/Page.astro";
+import Card from "../components/Card.astro";
+import CardStack from "../components/CardStack.astro";
+import Carousel from "../components/Carousel.astro";
+import Accordion from "../components/Accordion.astro";
+import AccordionItem from "../components/AccordionItem.astro";
+---
+
+<Page>
+  <Carousel slot="before-article" />
+
+  <h1>¿Qué es el CIPC?</h1>
+  <p>
+    El <strong>Campamento Invernal de Programación Competitiva</strong> es un programa
+    intensivo de dos semanas diseñado para estudiantes universitarios interesados
+    en aprender y aplicar algoritmos y estructuras de datos en el contexto de la
+    programación competitiva, con un enfoque principal en competencias estilo
+    <a
+      href="https://en.wikipedia.org/wiki/International_Collegiate_Programming_Contest"
+      >ICPC</a
+    >.
+  </p>
+  <p>El campamento incluye:</p>
+  <ul>
+    <li>
+      🧑‍🏫 <strong>Clases teóricas</strong> sobre algoritmos, estructuras de datos
+      y técnicas de programación competitiva.
+    </li>
+    <li>
+      👩‍💻 <strong>Talleres prácticos</strong> con simulaciones de competencias.
+    </li>
+    <li>💬 <strong>Sesiones de discusión</strong> y análisis de problemas.</li>
+  </ul>
+  <h2>Niveles</h2>
+  <p>
+    Para llegar a estudiantes con diversos niveles de experiencia, ofrecemos los
+    niveles <strong>Inicial</strong> y <strong>Avanzado</strong>:
+  </p>
+  <CardStack>
+    <Card class="w-full" title="🚀 Inicial" slot="left">
+      <p>
+        Dirigido a quienes están dando sus primeros pasos en programación
+        competitiva.
+      </p>
+      <p>
+        Se recomiendan conocimientos básicos de programación: if, loops,
+        arreglos y funciones.
+      </p>
+    </Card>
+    <Card class="w-full" title="🏆 Avanzado" slot="right">
+      <p>
+        Pensado para quienes buscan entrenarse seriamente para competencias como
+        la ICPC.
+      </p>
+      <p>
+        Se recomienda experiencia previa en competencias de programación y
+        conocimiento parcial o completo del temario del nivel inicial.
+      </p>
+    </Card>
+  </CardStack>
+
+  <p>
+    Puedes encontrar más información y el temario de cada nivel en el
+    <a href="/cronograma">cronograma</a>.
+  </p>
+
+  <h2>Preguntas frecuentes</h2>
+
+  <Accordion>
+    <AccordionItem
+      title="¿Es un campamento de verdad? ¿Vamos a acampar y programar a la luz de una fogata? "
+    >
+      ¡No! (aunque no sería mala idea). El campamento es una escuela de invierno
+      entre clases y sesiones prácticas en equipos. Típicamente, cada jornada
+      dura todo el día, con clases en la mañana y sesiones prácticas en las
+      tardes.
+    </AccordionItem>
+    <AccordionItem title="¿La inscripción tiene costo?">
+      <p>
+        La inscripción y participación en el campamento son totalmente gratis.
+      </p>
+    </AccordionItem>
+    <AccordionItem
+      title="¿Hay requisitos mínimos para participar en el campamento?"
+    >
+      <p>
+        No hay requisitos de entrada, quienes quieran pueden participar. Sin
+        embargo, si quieres sacarle el jugo al campamento, debes tener algún
+        dominio en algún lenguaje de programación (como C++, Java, o Python), y
+        conocer algunos conceptos básicos de programación (bucles o for-loops,
+        arreglos y listas, recursión, estructuras básicas, algoritmos básicos,
+        etc.).
+      </p>
+      <p>
+        Puedes ver nuestro canal de Youtube para aprender desde tópicos
+        esenciales a avanzados y ver algunas de las clases de campamentos
+        pasados!
+      </p>
+    </AccordionItem>
+    <AccordionItem
+      title="¿Qué hay de la alimentación, transporte, y estadía durante el campamento?"
+    >
+      <p>
+        Quienes participen en el campamento deben hacerse cargo de su
+        supervivencia, incluso del almuerzo durante los días del campamento.
+      </p>
+    </AccordionItem>
+    <AccordionItem
+      title="Me inscribí en el formulario, ¿tengo que hacer algo más?"
+    >
+      <p>
+        No. Te notificaremos tras terminar las inscripciones, confirmando tu
+        inscripción al campamento. Tras esa fecha y hasta el inicio del
+        campamento, te enviaremos unos cuantos correos más con más información
+        importante sobre el evento.
+      </p>
+    </AccordionItem>
+    <AccordionItem
+      title="No tengo una o dos personas para armar un equipo, ¿qué hago?"
+    >
+      <p>
+        Puedes inscribirte de igual manera si no tienes un equipo completo. En
+        el campamento haremos nuestro mejor esfuerzo para que todos estén en un
+        equipo. Sin embargo, en el formulario de inscripción indicamos que
+        daremos prioridad a equipos completos sólo en caso de que estemos
+        limitados por el espacio.
+      </p>
+    </AccordionItem>
+    <AccordionItem
+      title="Me estoy preparando para la IOI, o deseo triunfar en la OCI (Olimpiada Chilena de Informática), ¿puedo inscribirme en el campamento?"
+    >
+      <p>
+        ¡Por supuesto! Eres igualmente bienvenid@, y esperamos que el campamento
+        te sea de ayuda.
+      </p>
+    </AccordionItem>
+  </Accordion>
+
+  <h2>Organizadores</h2>
+  El Campamento Invernal de Programación Competitiva está organizado por la <a
+    href="https://progcomp.cl">Sociedad Chilena de Programación Competitiva</a
+  >.
+</Page>

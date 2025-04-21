@@ -33,6 +33,7 @@ body {
 
 main {
   padding-top: var(--header-height);
+  padding-bottom: calc(var(--spacing) * 8);
 
   a {
     color: var(--color-blue-600);

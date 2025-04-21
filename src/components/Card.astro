@@ -3,9 +3,9 @@ const { title, class: customClass = "" } = Astro.props;
 ---
 
 <div
-  class={`rounded-sm shadow-sm border-1 border-black/15 pt-2 px-4 pb-4 ${customClass}`}
+  class={`not-prose rounded-sm shadow-sm border-1 border-black/15 pt-2 px-4 pb-4 ${customClass}`}
 >
-  {title && <h2 class="text-xl my-2! mb-2">{title}</h2>}
+  {title && <h3 class="text-2xl my-2 font-bold">{title}</h3>}
   <div class="border-t border-gray-300 my-2"></div>
-  <div><slot /></div>
+  <div class="prose-sm md:prose text-base"><slot /></div>
 </div>
