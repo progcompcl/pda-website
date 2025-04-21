@@ -4,14 +4,16 @@ interface Props {
 }
 const { variant = "default" } = Astro.props;
 import { Image } from "astro:assets";
-import logo from "../assets/logo.svg";
-import logoSmall from "../assets/logo-small.svg";
+import logoDefault from "../assets/logo.svg";
+import logoSmallDefault from "../assets/logo-small.svg";
+import logoDark from "../assets/logo-dark.svg";
+import logoSmallDark from "../assets/logo-small-dark.svg";
 import { Menu } from "@lucide/astro";
 import Dropdown from "./Dropdown.astro";
 
 const headerClasses = {
   default: "bg-gray-50 shadow-md",
-  home: "bg-white/2 backdrop-filter backdrop-blue",
+  home: "bg-black/10 backdrop-filter backdrop-blue",
 }[variant];
 
 const navActiveClasses = "nav-active text-logo-orange-600";
@@ -21,6 +23,8 @@ const navLinkClasses = {
 }[variant];
 
 const showLogo = variant == "default";
+const logo = variant == "default" ? logoDefault : logoDark;
+const logoSmall = variant == "default" ? logoSmallDefault : logoSmallDark;
 const currentPath = Astro.url.pathname;
 const navItems = [
   { label: "acerca", href: "/acerca" },
@@ -43,18 +47,12 @@ const navItems = [
 >
   <div id="header-logo" class="grow-1 basis-0">
     <a href="/">
-      {
-        showLogo && (
-          <>
-            <div class="hidden lg:block">
-              <Image src={logo} height="64" alt="Logo CIPC" />
-            </div>
-            <div class="block lg:hidden">
-              <Image src={logoSmall} height="64" alt="Logo CIPC" />
-            </div>
-          </>
-        )
-      }
+      <div class="hidden lg:block">
+        <Image src={logo} height="64" alt="Logo CIPC" />
+      </div>
+      <div class="block lg:hidden">
+        <Image src={logoSmall} height="64" alt="Logo CIPC" />
+      </div>
     </a>
   </div>
   <nav class="font-mono">
@@ -81,7 +79,12 @@ const navItems = [
   <div class="flex justify-end grow-1 basis-0" id="header-right">
     <nav class="lg:hidden">
       <Dropdown items={navItems} id="testid" itemClass="font-mono">
-        <Menu class="w-12 h-12" />
+        <Menu
+          class:list={[
+            "w-12 h-12",
+            variant == "home" ? "text-logo-negative" : "",
+          ]}
+        />
       </Dropdown>
     </nav>
   </div>
