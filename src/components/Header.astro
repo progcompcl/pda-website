@@ -3,38 +3,37 @@ interface Props {
   variant?: "default" | "home";
 }
 const { variant = "default" } = Astro.props;
+
+import React from "react";
 import { Image } from "astro:assets";
 import logoDefault from "../assets/logo.svg";
 import logoSmallDefault from "../assets/logo-small.svg";
 import logoDark from "../assets/logo-dark.svg";
 import logoSmallDark from "../assets/logo-small-dark.svg";
-import { Menu } from "@lucide/astro";
-import Dropdown from "./Dropdown.astro";
+import { MobileNav } from "./MobileNav";
+import { DesktopNav } from "./DesktopNav";
 import { ModeToggle } from "@/components/ModeToggle";
 
 const headerClasses = {
   default: "bg-gray-50 shadow-md",
-  home: "bg-black/10 backdrop-filter backdrop-blue",
+  home: "bg-black/10 backdrop-filter backdrop-blur",
 }[variant];
 
-const navActiveClasses = "nav-active text-logo-orange-600";
-const navLinkClasses = {
-  default: "text-black hover:text-logo-orange-600",
-  home: "text-white hover:text-logo-orange-600",
-}[variant];
-
-const showLogo = variant == "default";
 const logo = variant == "default" ? logoDefault : logoDark;
 const logoSmall = variant == "default" ? logoSmallDefault : logoSmallDark;
+
 const currentPath = Astro.url.pathname;
-const navItems = [
+const navItemsData = [
+  { label: "inicio", href: "/" },
   { label: "acerca", href: "/acerca" },
   { label: "cronograma", href: "/cronograma" },
   { label: "patrocinadores", href: "/patrocinadores" },
   { label: "código de conducta", href: "/codigo-de-conducta" },
-].map((item) => ({
+];
+
+const navItems = navItemsData.map((item) => ({
   ...item,
-  classes: item.href === currentPath ? navActiveClasses : "",
+  isActive: item.href === currentPath,
 }));
 ---
 
@@ -46,7 +45,8 @@ const navItems = [
     headerClasses,
   ]}
 >
-  <div id="header-logo" class="grow-1 basis-0">
+  {/* Logo */}
+  <div id="header-logo" class="flex-1 basis-0">
     <a href="/">
       <div class="hidden lg:block">
         <Image src={logo} height="64" alt="Logo CIPC" />
@@ -56,62 +56,20 @@ const navItems = [
       </div>
     </a>
   </div>
-  <nav class="font-mono">
-    <ul class="hidden lg:flex gap-0">
-      {
-        navItems.map((item) => (
-          <li>
-            <a
-              class:list={[
-                "nav-link",
-                "text-xs sm:text-sm lg:text-lg",
-                navLinkClasses,
-                item.classes,
-              ]}
-              href={item.href}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
-  <div class="flex justify-end grow-1 basis-0" id="header-right">
-    {variant !== "home" && <ModeToggle client:load />}
+
+  {/* Header center, desktop nav */}
+  <DesktopNav client:load navItems={navItems} variant={variant} />
+
+  {/* Header right side */}
+  <div
+    id="header-right"
+    class="flex flex-1 basis-0 justify-end items-center gap-2"
+  >
+    {variant !== "home" && <ModeToggle client:visible />}
+
+    {/* Mobile navigation trigger */}
     <nav class="lg:hidden">
-      <Dropdown items={navItems} id="testid" itemClass="font-mono">
-        <Menu
-          class:list={[
-            "w-12 h-12",
-            variant == "home" ? "text-logo-negative" : "",
-          ]}
-        />
-      </Dropdown>
+      <MobileNav client:load navItems={navItems} variant={variant} />
     </nav>
   </div>
-
-  <style>
-    .nav-link {
-      position: relative;
-    }
-    .nav-link::before {
-      content: "[";
-      margin-right: -0.7rem;
-      visibility: hidden;
-    }
-    .nav-link::after {
-      content: "]";
-      margin-left: -0.7rem;
-      visibility: hidden;
-    }
-    .nav-link:hover::before,
-    .nav-active::before {
-      visibility: visible;
-    }
-    .nav-link:hover::after,
-    .nav-active::after {
-      visibility: visible;
-    }
-  </style>
 </header>
