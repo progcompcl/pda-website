@@ -4,12 +4,11 @@ interface Props {
 }
 const { variant = "default" } = Astro.props;
 
-import React from "react";
 import { Image } from "astro:assets";
-import logoDefault from "../assets/logo.svg";
-import logoSmallDefault from "../assets/logo-small.svg";
+import logo from "../assets/logo.svg";
+import logoSmall from "../assets/logo-small.svg";
 import logoDark from "../assets/logo-dark.svg";
-import logoSmallDark from "../assets/logo-small-dark.svg";
+import logoDarkSmall from "../assets/logo-small-dark.svg";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 import { ModeToggle } from "@/components/ModeToggle";
@@ -18,10 +17,6 @@ const headerClasses = {
   default: "bg-gray-50 dark:bg-gray-900 shadow-md",
   home: "bg-black/10 backdrop-filter backdrop-blur",
 }[variant];
-
-const logo = variant == "default" ? logoDefault : logoDark;
-const logoSmall = variant == "default" ? logoSmallDefault : logoSmallDark;
-
 const currentPath = Astro.url.pathname;
 const navItemsData = [
   { label: "inicio", href: "/" },
@@ -48,12 +43,30 @@ const navItems = navItemsData.map((item) => ({
   {/* Logo */}
   <div id="header-logo" class="flex-1 basis-0">
     <a href="/">
-      <div class="hidden lg:block">
-        <Image src={logo} height="64" alt="Logo CIPC" />
-      </div>
-      <div class="block lg:hidden">
-        <Image src={logoSmall} height="64" alt="Logo CIPC" />
-      </div>
+      <Image
+        src={logo}
+        height="64"
+        alt="Logo CIPC"
+        class="hidden lg:block dark:hidden"
+      />
+      <Image
+        src={logoSmall}
+        height="64"
+        alt="Logo CIPC"
+        class="block lg:hidden dark:hidden"
+      />
+      <Image
+        src={logoDark}
+        height="64"
+        alt="Logo CIPC"
+        class="hidden dark:lg:block"
+      />
+      <Image
+        src={logoDarkSmall}
+        height="64"
+        alt="Logo CIPC"
+        class="hidden dark:block dark:lg:hidden"
+      />
     </a>
   </div>
 
