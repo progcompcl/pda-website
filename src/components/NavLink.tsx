@@ -17,9 +17,10 @@ export const NavLink: React.FC<NavLinkProps> = ({
   className,
 }) => {
   const NAV_ACTIVE_CLASSES =
-    "text-logo-orange-600 before:visible after:visible";
+    "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
   const NAV_LINK_CLASSES_MAP = {
-    default: "text-black hover:text-logo-orange-600",
+    default:
+      "text-black dark:text-white hover:text-logo-orange-600 dark:hover:text-logo-negative",
     home: "text-white hover:text-logo-orange-600",
   };
 

@@ -21,7 +21,7 @@ const isLandingPage = Astro.url.pathname === "/";
     <title>CIPC{title && " - " + title}</title>
     <script src="js/theme.js" is:inline></script>
   </head>
-  <body class:list={{ dark: isLandingPage }}>
+  <body class:list={["bg-background", { dark: isLandingPage }]}>
     <slot />
   </body>
 </html>
