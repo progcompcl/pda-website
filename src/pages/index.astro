@@ -2,6 +2,8 @@
 import Header from "../components/Header.astro";
 import background from "../assets/utfsm.jpg";
 import Base from "../layouts/Base.astro";
+import { Link } from "@/components/ui/link";
+import { FileText, Info } from "lucide-react";
 ---
 
 <Base title="Inicio">
@@ -29,8 +31,19 @@ import Base from "../layouts/Base.astro";
         class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
       >
         22 de Julio - 2 de Agosto, 2025 <br /> Universidad Técnica Federico Santa
-        María, Valparaíso <br /> Inscripciones próximamente
+        María, Valparaíso
       </h2>
+    </div>
+    <div class="flex">
+      <Link
+        size="lg"
+        className="m-2"
+        href="https://docs.google.com/forms/d/e/1FAIpQLSfWZlNrgUpPiIfHvM8uDcIxRpbi8J33aXBAPZeDsImgOCkC_g/viewform"
+        ><FileText /> Inscríbete</Link
+      >
+      <Link variant="secondary" size="lg" className="m-2" href="/acerca"
+        ><Info /> Más información</Link
+      >
     </div>
   </main>
 </Base>

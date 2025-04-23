@@ -4,6 +4,7 @@ interface Props {
 }
 const { title } = Astro.props;
 import "../styles/global.css";
+const isLandingPage = Astro.url.pathname === "/";
 ---
 
 <!doctype html>
@@ -18,8 +19,9 @@ import "../styles/global.css";
       content="Campamento Invernal de Programación Competitiva en Chile"
     />
     <title>CIPC{title && " - " + title}</title>
+    <script src="js/theme.js" is:inline></script>
   </head>
-  <body>
+  <body class:list={{ dark: isLandingPage }}>
     <slot />
   </body>
 </html>

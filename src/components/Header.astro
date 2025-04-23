@@ -10,6 +10,7 @@ import logoDark from "../assets/logo-dark.svg";
 import logoSmallDark from "../assets/logo-small-dark.svg";
 import { Menu } from "@lucide/astro";
 import Dropdown from "./Dropdown.astro";
+import { ModeToggle } from "@/components/ModeToggle";
 
 const headerClasses = {
   default: "bg-gray-50 shadow-md",
@@ -77,6 +78,7 @@ const navItems = [
     </ul>
   </nav>
   <div class="flex justify-end grow-1 basis-0" id="header-right">
+    {variant !== "home" && <ModeToggle client:load />}
     <nav class="lg:hidden">
       <Dropdown items={navItems} id="testid" itemClass="font-mono">
         <Menu
