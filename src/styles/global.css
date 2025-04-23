@@ -40,6 +40,9 @@ main {
 }
 
 article {
+  > :nth-child(1) {
+    margin-top: calc(var(--spacing) * 8);
+  }
   a {
     color: var(--color-blue-600);
     text-decoration: underline;
