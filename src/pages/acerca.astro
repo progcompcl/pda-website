@@ -2,14 +2,13 @@
 import Page from "../layouts/Page.astro";
 import Card from "../components/Card.astro";
 import CardStack from "../components/CardStack.astro";
-import Carousel from "../components/Carousel.astro";
+import Carousel from "../components/Carousel.tsx";
 import Accordion from "../components/Accordion.astro";
 import AccordionItem from "../components/AccordionItem.astro";
 ---
 
 <Page title="Acerca">
-  <Carousel slot="before-article" />
-
+  <Carousel slot="before-article" client:load />
   <h1>¿Qué es el CIPC?</h1>
   <p>
     El <strong>Campamento Invernal de Programación Competitiva</strong> es un programa
