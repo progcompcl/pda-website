@@ -1,9 +1,9 @@
 ---
 import Page from "../layouts/Page.astro";
-import Card from "../components/Card.astro";
-import CardStack from "../components/CardStack.astro";
 import Carousel from "../components/Carousel.tsx";
 import FAQAccordion from "../components/FAQAccordion.tsx";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 ---
 
 <Page title="Acerca">
@@ -35,29 +35,40 @@ import FAQAccordion from "../components/FAQAccordion.tsx";
     Para llegar a estudiantes con diversos niveles de experiencia, ofrecemos los
     niveles <strong>Inicial</strong> y <strong>Avanzado</strong>:
   </p>
-  <CardStack>
-    <Card class="w-full" title="🚀 Inicial" slot="left">
-      <p>
-        Dirigido a quienes están dando sus primeros pasos en programación
-        competitiva.
-      </p>
-      <p>
-        Se recomiendan conocimientos básicos de programación: if, loops,
-        arreglos y funciones.
-      </p>
-    </Card>
-    <Card class="w-full" title="🏆 Avanzado" slot="right">
-      <p>
-        Pensado para quienes buscan entrenarse seriamente para competencias como
-        la ICPC.
-      </p>
-      <p>
-        Se recomienda experiencia previa en competencias de programación y
-        conocimiento parcial o completo del temario del nivel inicial.
-      </p>
-    </Card>
-  </CardStack>
 
+  <div class="flex flex-col md:flex-row gap-4 prose-base">
+    <Card className="pb-0 w-full">
+      <CardHeader className="border-b">
+        <CardTitle className="text-2xl">🚀 Inicial</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          Dirigido a quienes están dando sus primeros pasos en programación
+          competitiva.
+        </p>
+        <p>
+          Se recomiendan conocimientos básicos de programación: if, loops,
+          arreglos y funciones.
+        </p>
+      </CardContent>
+    </Card>
+
+    <Card className="pb-0 w-full">
+      <CardHeader className="border-b">
+        <CardTitle className="text-2xl">🏆 Avanzado</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p>
+          Pensado para quienes buscan entrenarse seriamente para competencias
+          como la ICPC.
+        </p>
+        <p>
+          Se recomienda experiencia previa en competencias de programación y
+          conocimiento parcial o completo del temario del nivel inicial.
+        </p>
+      </CardContent>
+    </Card>
+  </div>
   <p>
     Puedes encontrar más información y el temario de cada nivel en el
     <a href="/cronograma">cronograma</a>.
