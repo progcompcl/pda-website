@@ -84,7 +84,7 @@ const images = [
 
 const CarouselComponent: React.FC = () => {
   const autoplayPlugin = React.useRef(
-    Autoplay({ delay: 3000000, playOnInit: true }),
+    Autoplay({ delay: 3000, playOnInit: true }),
   );
 
   return (
