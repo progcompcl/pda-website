@@ -35,24 +35,20 @@ export function MobileNav({ navItems, variant }: MobileNavProps) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button
-          variant={triggerButtonVariant}
-          size="icon"
-          className={triggerButtonClasses}
-        >
+        <Button variant="outline" size="icon" className={triggerButtonClasses}>
           <Menu className={menuIconClasses} />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="p-6 w-[300px] sm:w-[400px]">
-        <SheetHeader className="mb-4">
+      <SheetContent side="left" className="w-3/4 sm:w-[400px]">
+        <SheetHeader>
           <SheetTitle>Navegación</SheetTitle>
         </SheetHeader>
-        <nav className="flex flex-col space-y-2">
+        <nav className="flex flex-col w-full items-center space-y-2">
           {navItems.map((item) => (
             <Button
               key={item.href}
               variant="ghost"
-              className="justify-start w-full text-xl h-10 font-mono"
+              className="justify-end w-full text-xl h-10 font-mono"
               asChild
             >
               <NavLink
