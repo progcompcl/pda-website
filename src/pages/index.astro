@@ -9,40 +9,41 @@ import { Image } from "astro:assets";
 
 <Base title="Inicio">
   <Header variant="home" />
-  <main class="flex flex-col h-[100dvh] items-center">
+  <main class="flex flex-col h-[100dvh] justify-center items-center">
     <Image
       class="absolute top-0 left-0 h-[100dvh] object-cover -z-10 filter brightness-[0.5]"
       src={background}
       alt="Universidad Técnica Federico Santa María, Valparaíso"
     />
-    <div></div>
-    <div class="mt-56" id="hero-text">
-      <h1
-        id="hero-title"
-        class="text-2xl font-title text-center text-[clamp(2.5rem,6vw,5rem)] font-black tracking-tighter leading-[0.9] text-shadow-lg/50 text-white"
-      >
-        CAMPAMENTO INVERNAL <br /> DE <span class="text-logo-orange"
-          >PROGRAMACIÓN <br /> COMPETITIVA</span
+    <div id="hero" class="flex flex-col items-center">
+      <div id="hero-text">
+        <h1
+          id="hero-title"
+          class="text-2xl font-title text-center text-[clamp(2.5rem,6vw,5rem)] font-black tracking-tighter leading-[0.9] text-shadow-lg/50 text-white"
         >
-      </h1>
-      <h2
-        id="hero-subtitle"
-        class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
-      >
-        22 de Julio - 1 de Agosto, 2025 <br /> Universidad Técnica Federico Santa
-        María, Valparaíso
-      </h2>
-    </div>
-    <div class="flex">
-      <Link
-        size="lg"
-        className="m-2"
-        href="https://docs.google.com/forms/d/e/1FAIpQLSfWZlNrgUpPiIfHvM8uDcIxRpbi8J33aXBAPZeDsImgOCkC_g/viewform"
-        ><FileText /> Inscríbete</Link
-      >
-      <Link variant="secondary" size="lg" className="m-2" href="/acerca"
-        ><Info /> Más información</Link
-      >
+          CAMPAMENTO INVERNAL <br /> DE <span class="text-logo-orange"
+            >PROGRAMACIÓN <br /> COMPETITIVA</span
+          >
+        </h1>
+        <h2
+          id="hero-subtitle"
+          class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
+        >
+          22 de Julio - 1 de Agosto, 2025 <br /> Universidad Técnica Federico Santa
+          María, Valparaíso
+        </h2>
+      </div>
+      <div class="flex">
+        <Link
+          size="lg"
+          className="m-2"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfWZlNrgUpPiIfHvM8uDcIxRpbi8J33aXBAPZeDsImgOCkC_g/viewform"
+          ><FileText /> Inscríbete</Link
+        >
+        <Link variant="secondary" size="lg" className="m-2" href="/acerca"
+          ><Info /> Más información</Link
+        >
+      </div>
     </div>
   </main>
 </Base>

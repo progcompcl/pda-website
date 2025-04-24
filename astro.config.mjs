@@ -16,4 +16,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   integrations: [mdx(), react({ experimentalReactChildren: true })],
+  server: { host: true },
 });
