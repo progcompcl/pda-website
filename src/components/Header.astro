@@ -20,15 +20,15 @@ const headerClasses = {
 const currentPath = Astro.url.pathname;
 const navItemsData = [
   { label: "inicio", href: "/" },
-  { label: "acerca", href: "/acerca" },
-  { label: "cronograma", href: "/cronograma" },
-  { label: "patrocinadores", href: "/patrocinadores" },
-  { label: "código de conducta", href: "/codigo-de-conducta" },
+  { label: "acerca", href: "/acerca/" },
+  { label: "cronograma", href: "/cronograma/" },
+  { label: "patrocinadores", href: "/patrocinadores/" },
+  { label: "código de conducta", href: "/codigo-de-conducta/" },
 ];
 
 const navItems = navItemsData.map((item) => ({
   ...item,
-  isActive: item.href.startsWith(currentPath),
+  isActive: item.href === currentPath,
 }));
 ---
 
