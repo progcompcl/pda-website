@@ -6,6 +6,10 @@ body {
   background-repeat: repeat-y;
 }
 
+.dark body {
+  background-image: url("public/bg-dark-optimized.svg");
+}
+
 main {
 }
 
