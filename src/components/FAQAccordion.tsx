@@ -118,7 +118,10 @@ export default function FAQAccordion() {
     >
       {accordionData.map((item, i) => {
         return (
-          <AccordionItem value={`item-${i.toFixed()}`}>
+          <AccordionItem
+            value={`item-${i.toFixed()}`}
+            key={`item-${i.toFixed()}`}
+          >
             <AccordionTrigger>{item.title}</AccordionTrigger>
             <AccordionContent>{item.description}</AccordionContent>
           </AccordionItem>
