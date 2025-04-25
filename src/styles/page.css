@@ -1,16 +1,13 @@
 body {
   height: 100%;
   width: 100%;
-  background-image: url("public/bg-optimized.svg");
+  background-image: url("bg-optimized.svg");
   background-size: 100%;
   background-repeat: repeat-y;
 }
 
 .dark body {
-  background-image: url("public/bg-dark-optimized.svg");
-}
-
-main {
+  background-image: url("bg-dark-optimized.svg");
 }
 
 h1 {

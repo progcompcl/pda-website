@@ -5,7 +5,7 @@
    width="1920"
    height="1200"
    id="svg580"
-   sodipodi:docname="bg.svg"
+   sodipodi:docname="bg-dark.svg"
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    xml:space="preserve"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -22,15 +22,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="548.71486"
-     inkscape:cy="592.55548"
+     inkscape:zoom="0.5"
+     inkscape:cx="650"
+     inkscape:cy="523"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
-     inkscape:window-x="-8"
+     inkscape:window-x="1912"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g275"><inkscape:page
+     inkscape:current-layer="layer1"><inkscape:page
        x="0"
        y="0"
        width="1920"
@@ -87,7 +87,7 @@
          id="stop5" /></linearGradient><linearGradient
        id="swatch3"
        inkscape:swatch="solid"><stop
-         style="stop-color:#f1f1f1;stop-opacity:1;"
+         style="stop-color:#141414;stop-opacity:1;"
          offset="0"
          id="stop3" /></linearGradient><linearGradient
        id="swatch2"
@@ -2517,7 +2517,7 @@
                        id="path93"
                        style="fill:url(#linearGradient238);stroke:none;stroke-opacity:1" /></g></g></g></g></g></g></g></g><g
        inkscape:label="xor"
-       transform="matrix(0.73462376,0,0,0.73462376,1069.2295,427.94255)"
+       transform="matrix(0.73462376,0,0,0.73462376,1069.2295,457.94255)"
        id="g145"
        style="fill:#c9af82;fill-opacity:1;stroke:none;stroke-opacity:1"><g
          transform="matrix(4.24685,0,0,4.24685,511.64532,-14.842029)"
