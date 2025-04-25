@@ -55,7 +55,6 @@ export function MobileNav({ navItems, variant }: MobileNavProps) {
                 href={item.href}
                 label={item.label}
                 isActive={item.isActive}
-                variant={variant}
               />
             </Button>
           ))}

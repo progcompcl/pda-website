@@ -9,13 +9,9 @@ interface NavItem {
 
 interface DesktopNavProps {
   navItems: NavItem[];
-  variant: "default" | "home";
 }
 
-export const DesktopNav: React.FC<DesktopNavProps> = ({
-  navItems,
-  variant,
-}) => (
+export const DesktopNav: React.FC<DesktopNavProps> = ({ navItems }) => (
   <nav className="font-mono hidden lg:flex flex-auto justify-center text-nowrap">
     <ul className="flex w-full justify-center items-center gap-4">
       {navItems.map((item) => (
@@ -24,7 +20,6 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
             href={item.href}
             label={item.label}
             isActive={item.isActive}
-            variant={variant}
           />
         </li>
       ))}

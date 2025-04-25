@@ -5,7 +5,6 @@ interface NavLinkProps {
   href: string;
   label: string;
   isActive: boolean;
-  variant: "default" | "home";
   className?: string;
 }
 
@@ -13,13 +12,13 @@ export const NavLink: React.FC<NavLinkProps> = ({
   href,
   label,
   isActive,
-  variant,
   className,
 }) => {
   const NAV_ACTIVE_CLASSES =
     "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
 
-  const linkColorClasses = "text-white hover:text-logo-orange-600";
+  const linkColorClasses =
+    "text-black dark:text-white hover:text-logo-orange-600 hover:text-logo-orange-600 dark:hover:text-logo-negative";
   const activeClasses = isActive ? NAV_ACTIVE_CLASSES : "";
 
   return (
