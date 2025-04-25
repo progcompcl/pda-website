@@ -153,7 +153,7 @@ function Carousel({
               type="button"
               className={cn(
                 "embla__dot",
-                "bg-transparent cursor-pointer border-1 p-0 m-0 inline-flex items-center justify-center rounded-full",
+                "bg-transparent cursor-pointer border-1 border-white/50 p-0 m-0 inline-flex items-center justify-center rounded-full",
                 "w-4 h-4",
                 selectedIndex === index &&
                   "embla__dot--selected bg-logo-orange",
