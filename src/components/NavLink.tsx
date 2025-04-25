@@ -18,13 +18,8 @@ export const NavLink: React.FC<NavLinkProps> = ({
 }) => {
   const NAV_ACTIVE_CLASSES =
     "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
-  const NAV_LINK_CLASSES_MAP = {
-    default:
-      "text-black dark:text-white hover:text-logo-orange-600 dark:hover:text-logo-negative",
-    home: "text-white hover:text-logo-orange-600",
-  };
 
-  const linkColorClasses = NAV_LINK_CLASSES_MAP[variant];
+  const linkColorClasses = "text-white hover:text-logo-orange-600";
   const activeClasses = isActive ? NAV_ACTIVE_CLASSES : "";
 
   return (
