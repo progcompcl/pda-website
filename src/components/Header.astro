@@ -28,7 +28,7 @@ const navItemsData = [
 
 const navItems = navItemsData.map((item) => ({
   ...item,
-  isActive: item.href === currentPath,
+  isActive: item.href.startsWith(currentPath),
 }));
 ---
 
