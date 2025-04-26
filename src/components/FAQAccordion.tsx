@@ -20,15 +20,31 @@ const accordionData: Props["data"] = [
       "¡No! (aunque no sería mala idea). El campamento es una escuela de invierno entre clases y sesiones prácticas en equipos. Típicamente, cada jornada dura todo el día, con clases en la mañana y sesiones prácticas en las tardes.",
   },
   {
-    title: "¿La inscripción tiene costo?",
+    title: "¿Cuándo y dónde se realizará el campamento?",
+    description: (
+      <>
+        <p>
+          El campamento se realizará entre el martes 22 de julio y el viernes 1 de
+          agosto de 2025, en la Universidad Técnica Federico Santa María, en Valparaíso.
+        </p>
+        <p>
+          Puedes encontrar más información en el <a href="/cronograma">cronograma</a>.
+        </p>
+      </>
+    ),
+  },
+  {
+    title: "¿Quiénes pueden participar?",
     description: (
       <p>
-        La inscripción y participación en el campamento son totalmente gratis.
+        El campamento está abierto a todos los interesados. Aunque está principalmente
+        dirigido a estudiantes universitarios, también son bienvenidos estudiantes
+        escolares y cualquier persona con interés en aprender.
       </p>
     ),
   },
   {
-    title: "¿Hay requisitos mínimos para participar en el campamento?",
+    title: "¿Hay conocimientos mínimos requeridos para participar?",
     description: (
       <>
         <p>
@@ -40,21 +56,11 @@ const accordionData: Props["data"] = [
           algoritmos básicos, etc.).
         </p>
         <p>
-          Puedes ver nuestro canal de Youtube para aprender desde tópicos
+          Puedes ver nuestro canal de YouTube para aprender desde tópicos
           esenciales a avanzados y ver algunas de las clases de campamentos
           pasados!
         </p>
       </>
-    ),
-  },
-  {
-    title:
-      "¿Qué hay de la alimentación, transporte, y estadía durante el campamento?",
-    description: (
-      <p>
-        Quienes participen en el campamento deben hacerse cargo de su
-        supervivencia, incluso del almuerzo durante los días del campamento.
-      </p>
     ),
   },
   {
@@ -67,6 +73,46 @@ const accordionData: Props["data"] = [
         importante sobre el evento.
       </p>
     ),
+  },
+  {
+    title: "¿Me puedo cambiar de nivel?",
+    description: (
+      <p>
+        Te puedes cambiar de nivel libremente antes o durante el campamento. Es decir,
+        si ves que la clase avanzada es muy difícil o la inicial es muy fácil, puedes
+        cambiarte a la otra sin problemas. También puedes ir cambiando día a día según
+        el tema que más te interese del <a href="/cronograma">cronograma</a>.
+      </p>
+    ),
+  },
+  {
+    title: "¿Qué criterios se consideran para otorgar las becas?",
+    description: (
+      <p>
+        Al igual que años pasados, la cantidad de becas es limitada. Tras el cierre
+        de las postulaciones, se evaluará cada caso y se asignarán las becas 
+        disponibles considerando factores como universidad y región de procedencia,
+        y dando prioridad a equipos compuestos solo por mujeres. Se buscará maximizar 
+        la diversidad geográfica e institucional entre los beneficiados.
+      </p>
+    ),
+  },
+  {
+    title: "¿Cómo se hará la entrega de las becas?",
+    description: (
+      <>
+        <p>
+          Si se te asigna una beca, recibirás el 50% antes del inicio del campamento
+          y el 50% restante a mitad del evento, una vez confirmada tu asistencia. 
+          El monto se entregará a través de transferencia bancaria o en efectivo en
+          caso de ser extranjero.
+        </p>
+        <p>
+          Para formalizar la entrega, antes de recibir la beca deberás firmar un 
+          compromiso de uso responsable y asistencia completa a las actividades. 
+        </p>
+      </>
+    )
   },
   {
     title:
@@ -99,8 +145,43 @@ const accordionData: Props["data"] = [
     ),
   },
   {
+    title: "¿Tengo que llevar computador?",
+    description: (
+      <p>
+        Para las sesiones prácticas usaremos los computadores de los laboratorios de la
+        universidad, por lo que no es necesario llevar uno. Sin embargo, si prefieres
+        usar tu computador personal porque te resulta más cómodo, puedes traerlo sin 
+        problema.
+      </p>
+    ),
+  },
+  {
+    title: "¿La inscripción tiene costo?",
+    description: (
+      <p>
+        La inscripción y participación en el campamento son totalmente gratis.
+      </p>
+    ),
+  },
+  {
     title:
-      "Me estoy preparando para la IOI, o deseo triunfar en la OCI (Olimpiada Chilena de Informática), ¿puedo inscribirme en el campamento?",
+      "¿Qué hay de la alimentación, transporte, y estadía durante el campamento?",
+    description: (
+      <>
+        <p>
+          Quienes participen en el campamento deben hacerse cargo de los gastos de
+          alimentación, transporte y hospedaje durante los días del campamento.
+        </p>
+        <p>
+          El casino de la universidad estará disponible para comprar almuerzo a precios
+          accesibles.
+        </p>
+      </>
+    ),
+  },
+  {
+    title:
+      "Me estoy preparando para la Olimpiada Chilena de Informática o la IOI, ¿puedo inscribirme?",
     description: (
       <p>
         ¡Por supuesto! Eres igualmente bienvenid@, y esperamos que el campamento
@@ -108,6 +189,14 @@ const accordionData: Props["data"] = [
       </p>
     ),
   },
+  {
+    title: "¿Qué pasa si tengo más preguntas?",
+    description: (
+      <p>
+        Para cualquier duda o consulta, puedes escribirnos a campamento@progcomp.cl
+      </p>
+    ),
+  }
 ];
 export default function FAQAccordion() {
   return (
