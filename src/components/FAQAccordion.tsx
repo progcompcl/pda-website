@@ -103,7 +103,7 @@ const accordionData: Props["data"] = [
       <>
         <p>
           Si se te asigna una beca, recibirás el 50% antes del inicio del campamento
-          y el 50% restante a mitad de la semana, una vez confirmada tu asistencia. 
+          y el 50% restante a mitad del evento, una vez confirmada tu asistencia. 
           El monto se entregará a través de transferencia bancaria o en efectivo en
           caso de ser extranjero.
         </p>
