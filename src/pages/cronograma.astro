@@ -12,6 +12,39 @@ import {
 import { Link } from "@/components/ui/link";
 import { FolderOpen } from "@lucide/astro";
 
+const horarios = [
+  {
+    actividad: "Upsolving",
+    horario_inicial: "09:00 - 10:00",
+    horario_avanzado: "09:00 - 10:20",
+  },
+  {
+    actividad: "Clase",
+    horario_inicial: "10:00 - 10:45",
+    horario_avanzado: "10:20 - 10:45",
+  },
+  {
+    actividad: "Descanso",
+    horario_inicial: "10:45 - 11:00",
+    horario_avanzado: "10:45 - 11:00",
+  },
+  {
+    actividad: "Clase",
+    horario_inicial: "11:00 - 12:45",
+    horario_avanzado: "11:00 - 12:45",
+  },
+  {
+    actividad: "Almuerzo",
+    horario_inicial: "12:45 - 13:30",
+    horario_avanzado: "12:45 - 13:30",
+  },
+  {
+    actividad: "Contest",
+    horario_inicial: "13:30 - 18:30",
+    horario_avanzado: "13:30 - 18:30",
+  },
+];
+
 const itinerarioInicial = [
   {
     dia: "Martes 22",
@@ -144,6 +177,36 @@ const itinerarioAvanzado = [
 <Page title="Cronograma">
   <div class="not-prose">
     <h1 class="text-3xl font-bold mb-6">Cronograma</h1>
+
+    <h2 class="text-2xl font-semibold mb-4">Horario de actividades</h2>
+    <Table>
+      <TableCaption>Horario de actividades diarias</TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Actividad</TableHead>
+          <TableHead>Hora Inicial</TableHead>
+          <TableHead>Hora Avanzado</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {
+          horarios.map((dia) => (
+            <TableRow>
+              <TableCell>{dia.actividad}</TableCell>
+              <TableCell>{dia.horario_inicial}</TableCell>
+              <TableCell>{dia.horario_avanzado}</TableCell>
+              <TableCell className="text-right">
+                {dia.slides && (
+                  <Link variant="ghost" href="/">
+                    <FolderOpen />
+                  </Link>
+                )}
+              </TableCell>
+            </TableRow>
+          ))
+        }
+      </TableBody>
+    </Table>
 
     <h2 class="text-2xl font-semibold mb-4">Nivel Inicial</h2>
     <Table>
