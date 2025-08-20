@@ -12,6 +12,10 @@ import logoDarkSmall from "../assets/logo-small-dark.svg";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 import { ModeToggle } from "@/components/ModeToggle";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const headerClasses = {
   default: "bg-gray-50 dark:bg-gray-900 shadow-md",
@@ -19,11 +23,10 @@ const headerClasses = {
 }[variant];
 const currentPath = Astro.url.pathname;
 const navItemsData = [
-  { label: "inicio", href: "/" },
-  { label: "acerca", href: "/acerca/" },
-  { label: "cronograma", href: "/cronograma/" },
-  { label: "patrocinadores", href: "/patrocinadores/" },
-  { label: "código de conducta", href: "/codigo-de-conducta/" },
+  { label: t("nav.home"), href: "/" },
+  { label: t("nav.about"), href: "/acerca/" },
+  { label: t("nav.schedule"), href: "/cronograma/" },
+  { label: t("nav.sponsors"), href: "/patrocinadores/" },
 ];
 
 const navItems = navItemsData.map((item) => ({
