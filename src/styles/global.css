@@ -13,18 +13,18 @@
   --font-title: "Archivo Black", "Arial Black", sans-serif;
 
   --color-logo-negative: #f36148;
-  --color-logo-orange: #ffa600; /* 500 Default */
-  --color-logo-orange-50: #fffcea;
-  --color-logo-orange-100: #fff5c5;
-  --color-logo-orange-200: #ffec85;
-  --color-logo-orange-300: #ffdb46;
-  --color-logo-orange-400: #ffc81b;
-  --color-logo-orange-500: #ffa600;
-  --color-logo-orange-600: #e27d00;
-  --color-logo-orange-700: #bb5602;
-  --color-logo-orange-800: #984208;
-  --color-logo-orange-900: #7c370b;
-  --color-logo-orange-950: #481b00;
+  --color-logo-orange: #f9af15ff; /* 500 Default */
+  --color-logo-orange-50: #fffceb;
+  --color-logo-orange-100: #fff7c6;
+  --color-logo-orange-200: #ffed88;
+  --color-logo-orange-300: #ffdd4a;
+  --color-logo-orange-400: #feca21;
+  --color-logo-orange-500: #f9af15;
+  --color-logo-orange-600: #dc8103;
+  --color-logo-orange-700: #b75b06;
+  --color-logo-orange-800: #94460c;
+  --color-logo-orange-900: #7a3a0d;
+  --color-logo-orange-950: #461d02;
   --color-logo-blue: #15214c;
 
   --header-height: 4rem;

@@ -45,32 +45,36 @@ const navItems = navItemsData.map((item) => ({
 >
   {/* Logo */}
   <div id="header-logo" class="flex-1 basis-0">
-    <a href="/">
-      <Image
-        src={logo}
-        height="64"
-        alt="Logo CIPC"
-        class="hidden lg:block dark:hidden"
-      />
-      <Image
-        src={logoSmall}
-        height="64"
-        alt="Logo CIPC"
-        class="block lg:hidden dark:hidden"
-      />
-      <Image
-        src={logoDark}
-        height="64"
-        alt="Logo CIPC"
-        class="hidden dark:lg:block"
-      />
-      <Image
-        src={logoDarkSmall}
-        height="64"
-        alt="Logo CIPC"
-        class="hidden dark:block dark:lg:hidden"
-      />
-    </a>
+    {
+      variant !== "home" && (
+        <a href="/">
+          <Image
+            src={logo}
+            height="64"
+            alt="Logo"
+            class="hidden lg:block dark:hidden"
+          />
+          <Image
+            src={logoSmall}
+            height="64"
+            alt="Logo"
+            class="block lg:hidden dark:hidden"
+          />
+          <Image
+            src={logoDark}
+            height="64"
+            alt="Logo"
+            class="hidden dark:lg:block"
+          />
+          <Image
+            src={logoDarkSmall}
+            height="64"
+            alt="Logo"
+            class="hidden dark:block dark:lg:hidden"
+          />
+        </a>
+      )
+    }
   </div>
 
   {/* Header center, desktop nav */}

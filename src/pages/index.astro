@@ -5,17 +5,24 @@ import Base from "../layouts/Base.astro";
 import { Link } from "@/components/ui/link";
 import { FileText, Info } from "lucide-react";
 import { Image } from "astro:assets";
+import logo from "../assets/logo-dark.svg";
 ---
 
 <Base title="Inicio" bodyClasses={["dark"]}>
   <Header variant="home" />
-  <main class="flex flex-col h-[100dvh] justify-center items-center">
+  <main class="flex flex-col h-[100dvh] items-center">
     <Image
       class="absolute top-0 left-0 h-[100dvh] -z-10 filter brightness-[0.5] object-cover object-[90%]"
       src={background}
       alt="Universidad Técnica Federico Santa María, Valparaíso"
     />
     <div id="hero" class="flex flex-col items-center">
+      <Image
+        src={logo}
+        height="256"
+        alt="Logo CIPC"
+        class="my-15 max-w-[80%]"
+      />
       <div id="hero-text">
         <h1
           id="hero-title"
