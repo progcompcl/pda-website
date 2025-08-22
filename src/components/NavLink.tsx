@@ -4,16 +4,17 @@ import { cn } from "@/lib/utils";
 interface NavLinkProps {
   href: string;
   label: string;
-  isActive: boolean;
+  currentPath: string;
   className?: string;
 }
 
 export const NavLink: React.FC<NavLinkProps> = ({
   href,
   label,
-  isActive,
+  currentPath,
   className,
 }) => {
+  const isActive = href === currentPath;
   const NAV_ACTIVE_CLASSES =
     "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
 

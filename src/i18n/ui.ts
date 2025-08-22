@@ -9,7 +9,12 @@ export const defaultLang = "en";
 export const ui = {
   en: {
     "nav.home": "home",
+    "nav.information": "information",
     "nav.about": "about",
+    "nav.importantInformation": "important information",
+    "nav.rules": "competition rules",
+    "nav.prizes": "prizes",
+    "nav.location": "location and tourism",
     "nav.schedule": "schedule",
     "nav.sponsors": "sponsors",
     "index.title": "PROGRAMMERS OF AMERICA 2026",

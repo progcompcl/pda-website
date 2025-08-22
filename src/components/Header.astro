@@ -12,7 +12,16 @@ import logoDarkSmall from "../assets/logo-small-dark.svg";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 import { ModeToggle } from "@/components/ModeToggle";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import type { NavbarItem } from "@/types/nav.ts";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,17 +31,32 @@ const headerClasses = {
   home: "bg-black/10 backdrop-filter backdrop-blur",
 }[variant];
 const currentPath = Astro.url.pathname;
-const navItemsData = [
-  { label: t("nav.home"), href: "/" },
-  { label: t("nav.about"), href: "/acerca/" },
-  { label: t("nav.schedule"), href: "/cronograma/" },
-  { label: t("nav.sponsors"), href: "/patrocinadores/" },
-];
 
-const navItems = navItemsData.map((item) => ({
-  ...item,
-  isActive: item.href === currentPath,
-}));
+const navigationLinks: NavbarItem[] = [
+  {
+    label: t("nav.home"),
+    href: "/",
+  },
+  {
+    label: t("nav.information"),
+    submenu: true,
+    items: [
+      { label: t("nav.about"), href: "/about/" },
+      { label: t("nav.importantInformation"), href: "/important-information/" },
+      { label: t("nav.rules"), href: "/rules/" },
+      { label: t("nav.prizes"), href: "/prizes/" },
+      { label: t("nav.location"), href: "/location/" },
+    ],
+  },
+  {
+    label: t("nav.schedule"),
+    href: "/cronograma/",
+  },
+  {
+    label: t("nav.sponsors"),
+    href: "/patrocinadores/",
+  },
+];
 ---
 
 <header
@@ -78,8 +102,13 @@ const navItems = navItemsData.map((item) => ({
   </div>
 
   {/* Header center, desktop nav */}
-  <DesktopNav client:load navItems={navItems} />
 
+  {/* Navigation menu */}
+  <DesktopNav
+    client:load
+    navItems={navigationLinks}
+    currentPath={currentPath}
+  />
   {/* Header right side */}
   <div
     id="header-right"
@@ -89,7 +118,9 @@ const navItems = navItemsData.map((item) => ({
 
     {/* Mobile navigation trigger */}
     <nav class="lg:hidden">
+      <!--
       <MobileNav client:load navItems={navItems} variant={variant} />
+      -->
     </nav>
   </div>
 </header>
