@@ -1,21 +1,21 @@
 ---
-import Page from "../layouts/Page.astro";
+import Page from "@/layouts/Page.astro";
 import { Image } from "astro:assets";
 
 import tcsLogoBlack from "@/assets/TCS-logo-black.png";
 import nicChileLogo from "@/assets/Nic-chile.png";
 ---
 
-<Page title="Patrocinadores">
+<Page title="Sponsors">
   <div class="flex flex-col items-center gap-8 py-12">
     <h1
-      class="text-3xl font-bold text-[#1A1A1A] mb-2"
+      class="text-3xl font-bold mb-2"
       style="font-family: Inter, Arial, sans-serif;"
     >
       Patrocinadores
     </h1>
     <p
-      class="text-lg text-[#6B7280] mb-8 text-center max-w-xl"
+      class="text-lg text-gray-500 mb-8 text-center max-w-xl"
       style="font-family: Inter, Arial, sans-serif;"
     >
       Agradecemos a nuestros patrocinadores por hacer posible este evento.
@@ -40,7 +40,7 @@ import nicChileLogo from "@/assets/Nic-chile.png";
           />
         </div>
         <span
-          class="mt-4 text-[#1A1A1A] font-medium text-lg group-hover:text-[#6C4FF6] transition-colors"
+          class="mt-4 font-medium text-lg group-hover:text-[#6C4FF6] transition-colors"
           style="font-family: Inter, Arial, sans-serif;">TCS</span
         >
       </a>
@@ -51,7 +51,7 @@ import nicChileLogo from "@/assets/Nic-chile.png";
         class="flex flex-col items-center group transition-transform hover:scale-105"
       >
         <div
-          class="bg-white rounded-xl shadow p-6 flex items-center justify-center w-80 h-40 border border-[#E5E7EB]"
+          class="dark:bg-white rounded-xl shadow p-6 flex items-center justify-center w-80 h-40"
         >
           <Image
             src={nicChileLogo}
@@ -61,7 +61,7 @@ import nicChileLogo from "@/assets/Nic-chile.png";
           />
         </div>
         <span
-          class="mt-4 text-[#1A1A1A] font-medium text-lg group-hover:text-[#6C4FF6] transition-colors"
+          class="mt-4 font-medium text-lg group-hover:text-[#6C4FF6] transition-colors"
           style="font-family: Inter, Arial, sans-serif;">NIC Chile</span
         >
       </a>

@@ -1,0 +1,57 @@
+---
+import Header from "../components/Header.astro";
+import background from "../assets/utfsm.jpg";
+import Base from "../layouts/Base.astro";
+import { Link } from "@/components/ui/link";
+import { FileText, Info } from "lucide-react";
+import { Image } from "astro:assets";
+import logo from "../assets/logo-dark.svg";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Base title="Inicio" bodyClasses={["dark"]}>
+  <Header variant="home" />
+  <main class="h-[100dvh]">
+    <Image
+      class="absolute top-0 left-0 h-[100dvh] -z-10 filter brightness-[0.5] object-cover object-[90%]"
+      src={background}
+      alt="Universidad Técnica Federico Santa María, Valparaíso"
+    />
+    <div
+      class="grid grid-rows-[minmax(0,3fr)_minmax(0,4fr)] h-full justify-items-center"
+    >
+      <Image src={logo} alt="Logo PdA" class="self-center max-h-[50%]" />
+      <div
+        class="grid grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center h-full"
+      >
+        <div class="self-center">
+          <h1
+            class="text-2xl font-title text-center text-[clamp(3rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white"
+          >
+            <slot name="title">
+              PROGRAMMERS OF <span class="text-logo-orange">AMERICA</span> 2026
+            </slot>
+          </h1>
+        </div>
+        <div>
+          <h2
+            class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
+          >
+            <slot name="subtitle">
+              <p>ICPC Latin America Championship 2026</p>
+              <p>Santiago - Valparaíso, Chile</p>
+            </slot>
+          </h2>
+          <div class="flex justify-center">
+            <Link variant="default" size="lg" className="m-2" href="/acerca"
+              ><Info />{t("home.about-btn")}</Link
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>

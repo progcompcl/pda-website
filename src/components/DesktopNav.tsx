@@ -6,18 +6,12 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  ACTIVE_CLASSES,
+  TEXT_CLASSES,
+  LINK_CLASSES,
 } from "@/components/ui/navigation-menu";
 import type { NavbarItem } from "@/types/nav";
 import { cn } from "@/lib/utils";
-
-const ACTIVE_CLASSES =
-  "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
-
-const TEXT_CLASSES =
-  "font-mono text-lg text-black dark:text-white hover:text-logo-orange-600 hover:text-logo-orange-600 dark:hover:text-logo-negative";
-
-const LINK_CLASSES =
-  "relative text-lg before:content-['['] before:invisible after:content-[']'] after:invisible hover:before:visible hover:after:visible";
 
 interface DesktopNavProps {
   navItems: NavbarItem[];
@@ -71,7 +65,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   {
-                    <div className="flex flex-col gap-3 bg-background p-4">
+                    <div className="flex flex-col gap-3 bg-background border-1 p-4">
                       {link.items?.map((item) => (
                         <NavigationMenuLink
                           asChild

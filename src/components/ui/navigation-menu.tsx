@@ -138,6 +138,15 @@ function NavigationMenuIndicator({
   );
 }
 
+const ACTIVE_CLASSES =
+  "text-logo-orange-600 dark:text-logo-negative before:visible after:visible";
+
+const TEXT_CLASSES =
+  "font-mono text-lg text-black dark:text-white hover:text-logo-orange-600 hover:text-logo-orange-600 dark:hover:text-logo-negative";
+
+const LINK_CLASSES =
+  "relative text-lg before:content-['['] before:invisible after:content-[']'] after:invisible hover:before:visible hover:after:visible";
+
 export {
   NavigationMenu,
   NavigationMenuList,
@@ -147,4 +156,7 @@ export {
   NavigationMenuLink,
   NavigationMenuIndicator,
   NavigationMenuViewport,
+  ACTIVE_CLASSES,
+  TEXT_CLASSES,
+  LINK_CLASSES,
 };

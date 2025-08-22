@@ -9,6 +9,13 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  i18n: {
+    locales: ["en", "es", "pt"],
+    defaultLocale: "en",
+    routing: {
+      prefixDefaultLocale: true,
+    },
+  },
   trailingSlash: "always",
   prefetch: {
     defaultStrategy: "viewport",

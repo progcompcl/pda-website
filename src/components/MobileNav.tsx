@@ -10,15 +10,21 @@ import {
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { NavLink } from "./NavLink";
-
-interface NavItem {
-  label: string;
-  href: string;
-  isActive: boolean;
-}
+import type { NavbarItem } from "@/types/nav";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  ACTIVE_CLASSES,
+  TEXT_CLASSES,
+  LINK_CLASSES,
+} from "@/components/ui/navigation-menu";
 
 interface MobileNavProps {
-  navItems: NavItem[];
+  navItems: NavbarItem[];
   variant: "default" | "home";
 }
 

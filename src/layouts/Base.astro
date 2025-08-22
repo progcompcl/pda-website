@@ -1,14 +1,16 @@
 ---
+import { getLangFromUrl } from "@/i18n/utils";
 interface Props {
   title: string;
   bodyClasses?: (string | undefined | false)[];
 }
 const { title, bodyClasses = [] } = Astro.props;
 import "../styles/global.css";
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="h-full">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />

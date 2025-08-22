@@ -1,0 +1,29 @@
+---
+import Page from "../layouts/Page.astro";
+import Carousel from "../components/Carousel.tsx";
+import FAQAccordion from "../components/FAQAccordion.tsx";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Trophy } from "lucide-react";
+---
+
+<!--
+TODO: Add Latam Championship image here
+-->
+<Page title="Acerca">
+  <h2>ICPC Latin American Championship 2026</h2>
+  <div class="absolute -z-1 translate-x-150 translate-y-50 scale-1500">
+    <Trophy color="#dddddd" strokeWidth="1" />
+  </div>
+  <p>
+    The International Collegiate Programming Contest is the oldest, largest and
+    most prestigious programming contest for university students. In teams of
+    three, students represent their institutions, practicing their algorithmic
+    skills, teamwork, creativity and the ability to perform under pressure.
+  </p>
+  <p>
+    Since the first championship in 1977, the ICPC has evolved into a global
+    competition, with universities around the world hosting regional rounds that
+    qualify teams for the World Finals. For this purpose, the Latin America
+    Championship reunites the best Latin American teams.
+  </p>
+</Page>

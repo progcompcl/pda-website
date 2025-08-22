@@ -22,6 +22,8 @@ import {
 import { Menu } from "lucide-react";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import type { NavbarItem } from "@/types/nav.ts";
+import LanguagePicker from "./LanguagePicker.astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -41,20 +43,35 @@ const navigationLinks: NavbarItem[] = [
     label: t("nav.information"),
     submenu: true,
     items: [
-      { label: t("nav.about"), href: "/about/" },
-      { label: t("nav.importantInformation"), href: "/important-information/" },
-      { label: t("nav.rules"), href: "/rules/" },
-      { label: t("nav.prizes"), href: "/prizes/" },
-      { label: t("nav.location"), href: "/location/" },
+      {
+        label: t("nav.about"),
+        href: getRelativeLocaleUrl(lang, "/about"),
+      },
+      {
+        label: t("nav.importantInformation"),
+        href: getRelativeLocaleUrl(lang, "/important-information/"),
+      },
+      {
+        label: t("nav.rules"),
+        href: getRelativeLocaleUrl(lang, "/rules/"),
+      },
+      {
+        label: t("nav.prizes"),
+        href: getRelativeLocaleUrl(lang, "/prizes/"),
+      },
+      {
+        label: t("nav.location"),
+        href: getRelativeLocaleUrl(lang, "/location/"),
+      },
     ],
   },
   {
     label: t("nav.schedule"),
-    href: "/cronograma/",
+    href: getRelativeLocaleUrl(lang, "/schedule/"),
   },
   {
     label: t("nav.sponsors"),
-    href: "/patrocinadores/",
+    href: getRelativeLocaleUrl(lang, "/sponsors/"),
   },
 ];
 ---
