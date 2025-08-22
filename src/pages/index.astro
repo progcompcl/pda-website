@@ -10,38 +10,39 @@ import logo from "../assets/logo-dark.svg";
 
 <Base title="Inicio" bodyClasses={["dark"]}>
   <Header variant="home" />
-  <main class="flex flex-col h-[100dvh] items-center">
+  <main class="h-[100dvh]">
     <Image
       class="absolute top-0 left-0 h-[100dvh] -z-10 filter brightness-[0.5] object-cover object-[90%]"
       src={background}
       alt="Universidad Técnica Federico Santa María, Valparaíso"
     />
-    <div id="hero" class="flex flex-col items-center">
-      <Image
-        src={logo}
-        height="256"
-        alt="Logo CIPC"
-        class="my-10 max-w-[80%]"
-      />
-      <div id="hero-text">
-        <h1
-          id="hero-title"
-          class="text-2xl font-title text-center text-[clamp(2.5rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white"
-        >
-          PROGRAMADORES DE <span class="text-logo-orange">AMÉRICA</span> 2026
-        </h1>
-        <h2
-          id="hero-subtitle"
-          class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
-        >
-          <p>ICPC Latin America Championship 2026</p>
-          <p>Santiago - Valparaíso, Chile</p>
-        </h2>
-      </div>
-      <div class="flex">
-        <Link variant="secondary" size="lg" className="m-2" href="/acerca"
-          ><Info /> Más información</Link
-        >
+    <div
+      class="grid grid-rows-[minmax(0,3fr)_minmax(0,4fr)] h-full justify-items-center"
+    >
+      <Image src={logo} alt="Logo CIPC" class="self-center max-h-[50%]" />
+      <div
+        class="grid grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center h-full"
+      >
+        <div class="self-center">
+          <h1
+            class="text-2xl font-title text-center text-[clamp(3rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white"
+          >
+            PROGRAMADORES DE <span class="text-logo-orange">AMÉRICA</span> 2026
+          </h1>
+        </div>
+        <div>
+          <h2
+            class="mt-4 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
+          >
+            <p>ICPC Latin America Championship 2026</p>
+            <p>Santiago - Valparaíso, Chile</p>
+          </h2>
+          <div class="flex justify-center">
+            <Link variant="secondary" size="lg" className="m-2" href="/acerca"
+              ><Info /> Más información</Link
+            >
+          </div>
+        </div>
       </div>
     </div>
   </main>
