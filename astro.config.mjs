@@ -16,6 +16,10 @@ export default defineConfig({
       prefixDefaultLocale: true,
     },
   },
+  redirects: {
+    // TODO: i18n
+    "/": "/en/",
+  },
   trailingSlash: "always",
   prefetch: {
     defaultStrategy: "viewport",
