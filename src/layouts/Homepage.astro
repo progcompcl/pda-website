@@ -7,6 +7,7 @@ import { FileText, Info } from "lucide-react";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-dark.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -46,7 +47,11 @@ const t = useTranslations(lang);
             </slot>
           </h2>
           <div class="flex justify-center">
-            <Link variant="default" size="lg" className="m-2" href="/acerca"
+            <Link
+              variant="default"
+              size="lg"
+              className="m-2"
+              href={getRelativeLocaleUrl(lang, "/about/")}
               ><Info />{t("home.about-btn")}</Link
             >
           </div>
