@@ -29,7 +29,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const headerClasses = {
-  default: "bg-gray-50 dark:bg-gray-900 shadow-md",
+  default: "bg-gray-50 dark:bg-background shadow-md",
   home: "bg-black/10 backdrop-filter backdrop-blur",
 }[variant];
 const currentPath = Astro.url.pathname;
@@ -118,9 +118,7 @@ const navigationLinks: NavbarItem[] = [
     }
   </div>
 
-  {/* Header center, desktop nav */}
-
-  {/* Navigation menu */}
+  {/* Desktop navigation menu */}
   <DesktopNav
     client:load
     navItems={navigationLinks}
@@ -135,9 +133,12 @@ const navigationLinks: NavbarItem[] = [
 
     {/* Mobile navigation trigger */}
     <nav class="lg:hidden">
-      <!--
-      <MobileNav client:load navItems={navItems} variant={variant} />
-      -->
+      <MobileNav
+        client:load
+        navItems={navigationLinks}
+        variant={variant}
+        currentPath={currentPath}
+      />
     </nav>
   </div>
 </header>

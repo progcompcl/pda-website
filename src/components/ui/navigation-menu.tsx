@@ -66,10 +66,10 @@ function NavigationMenuTrigger({
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={className}
+      className={cn("group", className)}
       {...props}
     >
-      {children}{" "}
+      {children}
       <ChevronDownIcon
         className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
         aria-hidden="true"
@@ -98,12 +98,12 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
-        "absolute top-full left-0 isolate z-50 flex justify-center",
+        "absolute top-full left-25 isolate z-50 flex justify-center",
       )}
     >
       <NavigationMenuPrimitive.Viewport
         data-slot="navigation-menu-viewport"
-        className={className}
+        className={cn("origin-top-center relative", className)}
         {...props}
       />
     </div>

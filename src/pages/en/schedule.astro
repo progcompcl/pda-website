@@ -11,13 +11,6 @@ import {
 } from "@/components/ui/table";
 
 import MaterialList from "@/components/MaterialList.astro";
-import { getMaterials } from "@/utils/getMaterials";
-import { getFileIcon } from "@/utils/getIcon";
-const materials = getMaterials();
-
-function getDayMaterial(level: string, date: string) {
-  return materials?.[level]?.[date] ?? null;
-}
 
 const horarios = [
   {
@@ -52,6 +45,7 @@ const horarios = [
   },
 ];
 
+/*
 const itinerarioInicial = [
   {
     dia: "Martes 22",
@@ -179,107 +173,14 @@ const itinerarioAvanzado = [
     material: getDayMaterial("avanzado", "2025-08-01"),
   },
 ];
+*/
 ---
 
 <Page title="Schedule">
-  <div class="not-prose">
-    <h1 class="text-3xl font-bold mb-6">Cronograma</h1>
+  <h2 class="text-center">Schedule</h2>
 
-    <h2 class="text-2xl font-semibold mb-4">Horario de actividades</h2>
-    <Table>
-      <TableCaption>Horario de actividades diarias</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Actividad</TableHead>
-          <TableHead>Hora Inicial</TableHead>
-          <TableHead>Hora Avanzado</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {
-          horarios.map((dia) => (
-            <TableRow>
-              <TableCell>{dia.actividad}</TableCell>
-              <TableCell>{dia.horario_inicial}</TableCell>
-              <TableCell>{dia.horario_avanzado}</TableCell>
-            </TableRow>
-          ))
-        }
-      </TableBody>
-    </Table>
-
-    <p class="mt-4 text-sm">
-      El primer dia martes 22 de julio las actividades iniciaran a las 8:30 para
-      la entrega de credenciales y acreditación.
-    </p>
-
-    <p class="mt-4 text-sm">
-      El tercer dia jueves 24 de julio el upsolving de ambos niveles basico y
-      avanzado finalizarán a las 10:00, donde se tomarán la foto oficial del
-      campamento.
-    </p>
-
-    <p class="mt-4 text-sm">
-      El último dia viernes 1 de agosto las actividades finalizarán a las 13:30
-      después del almuerzo.
-    </p>
-
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Nivel Inicial</h2>
-    <Table>
-      <TableCaption>Itinerario del nivel inicial.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Día</TableHead>
-          <TableHead>Tema</TableHead>
-          <TableHead>Profesor</TableHead>
-          <TableHead className="text-center">Material</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {
-          itinerarioInicial.map((dia) => (
-            <TableRow>
-              <TableCell>{dia.dia}</TableCell>
-              <TableCell>{dia.tema}</TableCell>
-              <TableCell>{dia.profesor}</TableCell>
-              <TableCell className="text-center">
-                {dia.material && dia.material.length > 0 && (
-                  <MaterialList files={dia.material} />
-                )}
-              </TableCell>
-            </TableRow>
-          ))
-        }
-      </TableBody>
-    </Table>
-
-    <h2 class="text-2xl font-semibold mt-8 mb-4">Nivel Avanzado</h2>
-    <Table>
-      <TableCaption>Itinerario del nivel avanzado.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead>Día</TableHead>
-          <TableHead>Tema</TableHead>
-          <TableHead>Profesor</TableHead>
-          <TableHead className="text-center">Material</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {
-          itinerarioAvanzado.map((dia) => (
-            <TableRow>
-              <TableCell>{dia.dia}</TableCell>
-              <TableCell>{dia.tema}</TableCell>
-              <TableCell>{dia.profesor}</TableCell>
-              <TableCell className="text-center">
-                {dia.material && dia.material.length > 0 && (
-                  <MaterialList files={dia.material} />
-                )}
-              </TableCell>
-            </TableRow>
-          ))
-        }
-      </TableBody>
-    </Table>
-  </div>
+  <p>
+    Here you will find the event dates and a day-to-day schedule. Full schedule
+    coming soon.
+  </p>
 </Page>
