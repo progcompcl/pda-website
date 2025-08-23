@@ -12,14 +12,6 @@ import logoDarkSmall from "../assets/logo-small-dark.svg";
 import { MobileNav } from "./MobileNav";
 import { DesktopNav } from "./DesktopNav";
 import { ModeToggle } from "@/components/ModeToggle";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import type { NavbarItem } from "@/types/nav.ts";
 import LanguagePicker from "./LanguagePicker.astro";
@@ -37,7 +29,7 @@ const currentPath = Astro.url.pathname;
 const navigationLinks: NavbarItem[] = [
   {
     label: t("nav.home"),
-    href: "/",
+    href: getRelativeLocaleUrl(lang, "/"),
   },
   {
     label: t("nav.information"),
