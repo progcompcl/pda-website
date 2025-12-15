@@ -4,6 +4,11 @@ import { Image } from "astro:assets";
 
 import synopsysLogo from "@/assets/synopsys-logo.svg";
 import nicChileLogo from "@/assets/Nic-chile.png";
+import huaweiLogo from "../../../public/Huawei.svg";
+import jetbrainsLogo from "../../../public/JetBrains.svg";
+import agendaproLogo from "../../../public/logoagendapro.png";
+import itauLogo from "../../../public/logoitau.png";
+import buklogo from "../../../public/logobuk.png"
 ---
 
 <Page title="Sponsors">
@@ -12,6 +17,145 @@ import nicChileLogo from "@/assets/Nic-chile.png";
     We thank our sponsors for making this event possible.
   </p>
 
+  <!-- Jetbrains -->
+  <div
+    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
+  >
+    <a
+      href="https://www.jetbrains.com/icpc/?utm_campaign=sponsor&utm_medium=email&utm_source=icpc"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={jetbrainsLogo}
+        alt="JetBrains logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <p class="text-lg max-w-md mt-0">
+      <strong>JetBrains, ICPC Global Sponsor Programming Tools,</strong> is a global software company that creates professional 
+      software development tools and advanced collaboration solutions trusted by more than 
+      15 million users worldwide. Since 2000, we have built a product catalog that covers 
+      all stages of the software development cycle, major technologies, programming 
+      languages, and educational processes. 
+      As developers of the Kotlin programming language and creators of professional development 
+      products like IntelliJ IDEA, CLion, and PyCharm, as well as educational tools that help 
+      people learn and teach computer programming, we are dedicated to supporting individuals 
+      throughout their software development journeys. Sponsoring ICPC has special significance 
+      for JetBrains and aligns with our commitment to nurturing promising young talent and 
+      working with the brightest minds.
+    </p>
+  </div>
+
+  <!-- Huawei -->
+  <div
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"
+  >
+    <a
+      href="https://career.huawei.com/reccampportal/portal5/index.html"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={huaweiLogo}
+        alt="Huawei logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <p class="text-lg max-w-md mt-0">
+      <strong>Huawei, ICPC Diamond Multi-Regional Sponsor,</strong> a leading global provider of information and communications 
+      technology infrastructure and smart devices. With more than 207,000 employees and 
+      operating in more than 170 countries and regions, Huawei’s vision and mission is to 
+      bring digital to every person, home and organization for a fully connected, intelligent 
+      world. Huawei is constantly exploring future innovations and is welcoming you to join the 
+      team to discover more challenging topics in your region.
+    </p>
+  </div>
+
+  <!-- AgendaPro -->
+  <div
+    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
+  >
+    <a
+      href="https://agendapro.com/cl"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={agendaproLogo}
+        alt="AgendaPro logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <p class="text-lg max-w-md mt-0">
+      <strong>AgendaPro</strong> is a comprehensive management platform designed for beauty, 
+      health, spa, and wellness businesses, allowing you to schedule appointments, manage 
+      clients, control inventory, automate marketing, and process payments, all from a 
+      single intuitive tool to professionalize and grow your business. It is an all-in-one 
+      software that centralizes operations, helping to reduce absences, improve customer 
+      retention, and optimize finances.
+    </p>
+  </div>
+
+  <!-- Itaú -->
+  <div
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"
+  >
+    <a
+      href="https://www.itau.cl/personas"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={itauLogo}
+        alt="Itaú logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <p class="text-lg max-w-md mt-0">
+      <strong>Itaú</strong> is a leading financial institution in Latin America, a 
+      subsidiary of the Brazilian group Itaú Unibanco, the largest private bank in 
+      the region, operating in several countries such as Chile, Colombia, and Panama, 
+      offering universal banking products and services, from personal to corporate banking, 
+      with a strong focus on sustainability and customer satisfaction. It stands out in 
+      Chile for its merger with Corpbanca and its digital offering, such as the itu account.
+    </p>
+  </div>
+
+  <!-- BUK Chile -->
+  <div
+    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
+  >
+    <a
+      href="https://www.buk.cl/"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={buklogo}
+        alt="Buk logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <p class="text-lg max-w-md mt-0">
+      <strong>Buk</strong> is a comprehensive human resources (HR) management 
+      software platform that centralizes, digitizes, and automates the entire 
+      employee lifecycle in a company, from payroll and attendance to professional 
+      development, enabling organizations to efficiently manage their personnel 
+      processes, ensure legal compliance, and improve the employee experience.
+    </p>
+  </div>
+  
   <!-- Synopsys -->
   <div
     class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"

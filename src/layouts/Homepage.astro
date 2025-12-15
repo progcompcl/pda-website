@@ -8,6 +8,8 @@ import { Link } from "@/components/ui/link";
 import { FileText, Info } from "lucide-react";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-dark.svg";
+import logoHuawei from "../../public/Huawei.svg";
+import logoJetBrains from "../../public/JetBrains.svg"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -51,7 +53,7 @@ const t = useTranslations(lang);
             class="mt-2 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
           >
             <slot name="subtitle">
-              <p>Santiago - Valparaíso, Chile</p>
+              <p>Santiago, Chile</p>
             </slot>
           </h2>
           <div class="flex justify-center">
@@ -62,6 +64,21 @@ const t = useTranslations(lang);
               href={getRelativeLocaleUrl(lang, "/about/")}
               ><Info />{t("home.about-btn")}</Link
             >
+          </div>
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mt-12 bg-white/50 rounded-2xl px-8 py-3 max-w-[90vw] mx-auto">
+             <Image 
+               src={logoHuawei} 
+               alt="Huawei" 
+               class="h-60 w-auto object-contain" 
+             />
+             
+             <div class="h-8 w-px bg-white/30"></div>
+
+             <Image 
+               src={logoJetBrains} 
+               alt="JetBrains" 
+               class="h-24 w-auto object-contain" 
+             />
           </div>
         </div>
       </div>
