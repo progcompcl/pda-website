@@ -1,186 +1,163 @@
 ---
 import Page from "@/layouts/Page.astro";
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
 
-import MaterialList from "@/components/MaterialList.astro";
-
-const horarios = [
+// Datos extraídos de la imagen del itinerario (4th - 8th March 2026)
+const schedule = [
   {
-    actividad: "Upsolving",
-    horario_inicial: "09:00 - 10:00",
-    horario_avanzado: "09:00 - 10:20",
+    day: "Day 1 (Tue 3)",
+    date: "March 3",
+    events: [
+      { time: "", title: "Leaders arrival" },
+      { time: "", title: "Leaders registration" },
+      { time: "Evening", title: "Leaders dinner @ Hotel" },
+    ],
   },
   {
-    actividad: "Clase",
-    horario_inicial: "10:00 - 10:45",
-    horario_avanzado: "10:20 - 11:05",
+    day: "Day 2 (Wed 4)",
+    date: "March 4",
+    events: [
+      { time: "", title: "Teams Arrival" },
+      { time: "", title: "Teams Registration" },
+      { time: "", title: "Leaders Meeting" },
+      { time: "", title: "Leaders Lunch" },
+      { time: "", title: "Leaders Excursion" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+    ],
   },
   {
-    actividad: "Descanso - Coffee break",
-    horario_inicial: "10:45 - 11:15",
-    horario_avanzado: "11:05 - 11:35",
+    day: "Day 3 (Thu 5)",
+    date: "March 5",
+    events: [
+      { time: "Morning", title: "Breakfast - Hotel" },
+      {
+        time: "10:00 - 12:00",
+        title: "Opening Ceremony",
+        location: "Auditorio Luksic UC",
+        highlight: true,
+      },
+      { time: "", title: "Official Photo" },
+      { time: "", title: "Teams + Leaders Lunch" },
+      {
+        time: "Afternoon",
+        title: "Huawei Tech Challenge - Contest Arena",
+        location: "Gimnasio UTFSM SJ",
+        highlight: true,
+      },
+      {
+        time: "",
+        title: "Sponsors Tech Arena",
+        location: "Patio Testamento UTFSM SJ",
+      },
+      { time: "", title: "Chill Zone @ Hotel" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+    ],
   },
   {
-    actividad: "Clase",
-    horario_inicial: "11:15 - 12:30",
-    horario_avanzado: "11:35 - 12:30",
+    day: "Day 4 (Fri 6)",
+    date: "March 6",
+    events: [
+      { time: "Morning", title: "Breakfast - Hotel" },
+      {
+        time: "10:00 - 12:00",
+        title: "Warmup Contest - Contest Arena",
+        location: "Gim UTFSM SJ",
+        highlight: true,
+      },
+      { time: "", title: "Teams + Leaders Lunch" },
+      { time: "Afternoon", title: "Teams City Excursion" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+    ],
   },
   {
-    actividad: "Almuerzo",
-    horario_inicial: "12:30 - 13:30",
-    horario_avanzado: "12:30 - 13:30",
+    day: "Day 5 (Sat 7)",
+    date: "March 7",
+    events: [
+      { time: "Morning", title: "Breakfast - Hotel" },
+      {
+        time: "10:00 - 15:00",
+        title: "LATAM Contest - Contest Arena",
+        location: "Gim UTFSM SJ",
+        highlight: true,
+        primary: true, // Para destacar más este evento
+      },
+      { time: "", title: "Teams + Leaders Lunch" },
+      {
+        time: "15:00 - 17:00",
+        title: "Post-contests",
+        location: "UTFSM SJ",
+      },
+      {
+        time: "19:00",
+        title: "Awards Ceremony",
+        location: "Auditorio Luksic UC",
+        highlight: true,
+      },
+      {
+        time: "Night",
+        title: "Dinner Farewell Party",
+        location: "UC",
+      },
+    ],
   },
   {
-    actividad: "Contest",
-    horario_inicial: "13:30 - 18:30",
-    horario_avanzado: "13:30 - 18:30",
+    day: "Day 6 (Sun 8)",
+    date: "March 8",
+    events: [
+      { time: "Morning", title: "Breakfast - Hotel" },
+      { time: "", title: "Teams + Leaders departure" },
+    ],
   },
 ];
-
-/*
-const itinerarioInicial = [
-  {
-    dia: "Martes 22",
-    tema: "Introducción a C++",
-    profesor: "Ignacio Muñoz",
-    material: getDayMaterial("inicial", "2025-07-22"),
-  },
-  {
-    dia: "Miércoles 23",
-    tema: "Sorting, greedy y búsqueda binaria",
-    profesor: "Blaz Korecic",
-    material: getDayMaterial("inicial", "2025-07-23"),
-  },
-  {
-    dia: "Jueves 24",
-    tema: "Estructuras de la librería estándar",
-    profesor: "Javiera León",
-    material: getDayMaterial("inicial", "2025-07-24"),
-  },
-  {
-    dia: "Viernes 25",
-    tema: "Programación dinámica",
-    profesor: "Blaz Korecic",
-    material: getDayMaterial("inicial", "2025-07-25"),
-  },
-  {
-    dia: "Sábado 26",
-    tema: "Resolución de problemas",
-    profesor: "Javiera León",
-    material: getDayMaterial("inicial", "2025-07-26"),
-  },
-  { dia: "Domingo 27", tema: "BREAK", profesor: null, material: null },
-  {
-    dia: "Lunes 28",
-    tema: "Grafos 1",
-    profesor: "Benjamin Letelier",
-    material: getDayMaterial("inicial", "2025-07-28"),
-  },
-  {
-    dia: "Martes 29",
-    tema: "Brute force y matemáticas",
-    profesor: "Abner Vidal",
-    material: getDayMaterial("inicial", "2025-07-29"),
-  },
-  {
-    dia: "Miércoles 30",
-    tema: "Resolución de Problemas",
-    profesor: "Marcelo Lemus",
-    material: getDayMaterial("inicial", "2025-07-30"),
-  },
-  {
-    dia: "Jueves 31",
-    tema: "Grafos 2",
-    profesor: "Benjamin Letelier",
-    material: getDayMaterial("inicial", "2025-07-31"),
-  },
-  {
-    dia: "Viernes 1",
-    tema: "Cierre",
-    profesor: "Por Confirmar",
-    material: getDayMaterial("inicial", "2025-08-01"),
-  },
-];
-
-const itinerarioAvanzado = [
-  {
-    dia: "Martes 22",
-    tema: "Búsqueda binaria avanzada",
-    profesor: "Enzo Vivallo",
-    material: getDayMaterial("avanzado", "2025-07-22"),
-  },
-  {
-    dia: "Miércoles 23",
-    tema: "Segment Tree",
-    profesor: "Enzo Vivallo",
-    material: getDayMaterial("avanzado", "2025-07-23"),
-  },
-  {
-    dia: "Jueves 24",
-    tema: "Hashing y prefix function",
-    profesor: "Carlos Lagos",
-    material: getDayMaterial("avanzado", "2025-07-24"),
-  },
-  {
-    dia: "Viernes 25",
-    tema: "Programación dinámica",
-    profesor: "Gabriel Carmona",
-    material: getDayMaterial("avanzado", "2025-07-25"),
-  },
-  {
-    dia: "Sábado 26",
-    tema: "Resolución de problemas",
-    profesor: "Carlos Lagos",
-    material: getDayMaterial("avanzado", "2025-07-26"),
-  },
-  { dia: "Domingo 27", tema: "BREAK", profesor: null, material: null },
-  {
-    dia: "Lunes 28",
-    tema: "LCA y Binary Lifting",
-    profesor: "Marcelo Lemus",
-    material: getDayMaterial("avanzado", "2025-07-28"),
-  },
-  {
-    dia: "Martes 29",
-    tema: "Convoluciones y FFT",
-    profesor: "Gabriel Carmona",
-    material: getDayMaterial("avanzado", "2025-07-29"),
-  },
-  {
-    dia: "Miércoles 30",
-    tema: "Resolución de problemas",
-    profesor: "Abner Vidal",
-    material: getDayMaterial("avanzado", "2025-07-30"),
-  },
-  {
-    dia: "Jueves 31",
-    tema: "Grafos y flujos",
-    profesor: "Marcelo Lemus",
-    material: getDayMaterial("avanzado", "2025-07-31"),
-  },
-  {
-    dia: "Viernes 1",
-    tema: "Cierre",
-    profesor: "Por Confirmar",
-    material: getDayMaterial("avanzado", "2025-08-01"),
-  },
-];
-*/
 ---
 
 <Page title="Schedule">
-  <h2 class="text-center">Schedule</h2>
+  <div class="container mx-auto py-8">
+    <div class="text-center mb-10">
+      <h1 class="text-4xl font-bold mb-2">Schedule</h1>
+      <p class="text-xl text-muted-foreground font-semibold text-logo-orange">
+        4th - 8th March 2026
+      </p>
+      <p class="text-muted-foreground mt-2">Santiago - Valparaíso, Chile</p>
+    </div>
 
-  <p>
-    Here you will find the event dates and a day-to-day schedule. Full schedule
-    coming soon.
-  </p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        schedule.map((day) => (
+          <div class="border rounded-xl shadow-sm bg-card overflow-hidden flex flex-col hover:shadow-md transition-shadow">
+            {/* Header de cada día */}
+            <div class="bg-muted/50 p-4 border-b text-center">
+              <h3 class="text-lg font-bold text-primary">{day.day}</h3>
+            </div>
+
+            {/* Lista de eventos */}
+            <div class="p-4 flex-1">
+              <ul class="space-y-4">
+                {day.events.map((event) => (
+                  <li
+                    class={`flex flex-col ${event.primary ? "bg-blue-50/10 dark:bg-blue-900/20 -mx-2 p-2 rounded-md border border-blue-200/20" : ""}`}
+                  >
+                    {event.time && (
+                      <span class="text-xs font-semibold text-muted-foreground mb-0.5">
+                        {event.time}
+                      </span>
+                    )}
+                    <span
+                      class={`text-sm font-medium leading-tight ${event.highlight || event.primary ? "text-primary font-bold" : ""}`}
+                    >
+                      {event.title}
+                    </span>
+                    {event.location && (
+                      <span class="text-xs text-muted-foreground mt-0.5 italic">
+                        📍 {event.location}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 </Page>

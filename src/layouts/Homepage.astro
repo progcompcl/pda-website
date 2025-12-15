@@ -2,14 +2,14 @@
 import Header from "../components/Header.astro";
 import santiagoVertical from "../assets/santiago-vertical.jpg";
 import santiagoHorizontal from "../assets/santiago-horizontal.jpg";
-import valparaisoHorizontal from "../assets/valparaiso-horizontal.jpg";
 import Base from "../layouts/Base.astro";
 import { Link } from "@/components/ui/link";
-import { FileText, Info } from "lucide-react";
+import { Info } from "lucide-react";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-dark.svg";
-import logoHuawei from "../../public/Huawei.svg";
-import logoJetBrains from "../../public/JetBrains.svg"
+// Asegúrate de que las rutas a las imágenes sean correctas
+import logoHuawei from "../../public/Huawei.png";
+import logoJetBrains from "../../public/JetBrains.svg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -30,57 +30,67 @@ const t = useTranslations(lang);
       src={santiagoHorizontal}
       alt="Santiago de Chile"
     />
-    <div
-      class="grid grid-rows-[minmax(0,3fr)_minmax(0,4fr)] h-full justify-items-center"
-    >
+    
+    <div class="grid grid-rows-[minmax(0,3fr)_minmax(0,4fr)] h-full justify-items-center">
+      
       <Image src={logo} alt="Logo PdA" class="self-center max-h-[50%]" />
-      <div
-        class="grid grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center h-full"
-      >
+      
+      <div class="grid grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center h-full w-full">
+        
         <div class="self-center">
-          <h1
-            class="text-2xl font-title text-center text-[clamp(2rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white"
-          >
+          <h1 class="text-2xl font-title text-center text-[clamp(2rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white">
             <slot name="title">
-              2026 ICPC <span class="text-logo-orange whitespace-nowrap"
-                >LATIN AMERICA</span
-              > CHAMPIONSHIP
+              2026 ICPC <span class="text-logo-orange whitespace-nowrap">LATIN AMERICA</span> CHAMPIONSHIP
             </slot>
           </h1>
         </div>
-        <div>
-          <h2
-            class="mt-2 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg"
-          >
+
+        <div class="flex flex-col items-center w-full">
+          <h2 class="mt-2 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg">
             <slot name="subtitle">
               <p>Santiago, Chile</p>
             </slot>
           </h2>
-          <div class="flex justify-center">
+
+          <div class="flex justify-center mt-2">
             <Link
               variant="default"
               size="lg"
               className="m-2"
               href={getRelativeLocaleUrl(lang, "/about/")}
-              ><Info />{t("home.about-btn")}</Link
             >
+              <Info />{t("home.about-btn")}
+            </Link>
           </div>
-          <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mt-12 bg-white/50 rounded-2xl px-8 py-3 max-w-[90vw] mx-auto">
-             <Image 
-               src={logoHuawei} 
-               alt="Huawei" 
-               class="h-50 w-auto object-contain" 
-             />
-             
-             <div class="h-8 w-px bg-white/30"></div>
 
-             <Image 
-               src={logoJetBrains} 
-               alt="JetBrains" 
-               class="h-14 w-auto object-contain" 
-             />
+          <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mt-8 bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-6 max-w-[90vw] mx-auto shadow-lg">
+             
+             <div class="flex flex-col items-center text-center gap-3">
+                 <Image 
+                   src={logoHuawei} 
+                   alt="Huawei" 
+                   class="h-25 w-auto object-contain" 
+                 />
+                 <span class="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wide leading-tight max-w-[240px]">
+                   ICPC Diamond Multi-Regional Sponsor
+                 </span>
+             </div>
+             
+             <div class="hidden md:block h-24 w-px bg-gray-400"></div>
+
+             <div class="flex flex-col items-center text-center gap-3">
+                 <Image 
+                   src={logoJetBrains} 
+                   alt="JetBrains" 
+                   class="h-16 w-auto object-contain" 
+                 />
+                 <span class="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wide leading-tight max-w-[240px]">
+                   ICPC Global Sponsor Programming Tools
+                 </span>
+             </div>
+
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </main>
