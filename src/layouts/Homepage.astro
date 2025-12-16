@@ -7,9 +7,17 @@ import { Link } from "@/components/ui/link";
 import { Info } from "lucide-react";
 import { Image } from "astro:assets";
 import logo from "../assets/logo-dark.svg";
+
 // Asegúrate de que las rutas a las imágenes sean correctas
 import logoHuawei from "../../public/Huawei.png";
 import logoJetBrains from "../../public/JetBrains.svg";
+import logoItau from "../../public/logoitau.png";
+import logoAgendaPro from "../../public/logoagendapro.png";
+import logoBuk from "../../public/logobuk.png";
+import logoNic from "@/assets/Nic-chile.png";
+import logoSynopsys from "@/assets/synopsys-logo.svg";
+import UC from "../../public/PUC.png";
+import UTFSM from "../../public/UTFSM.jpg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -19,25 +27,32 @@ const t = useTranslations(lang);
 
 <Base title="Inicio" bodyClasses={["dark"]}>
   <Header variant="home" />
-  <main class="h-[100dvh]">
+  
+  <main class="min-h-[100dvh] relative pb-12">
+    
     <Image
-      class="block lg:hidden absolute top-0 left-0 h-[100dvh] -z-10 filter brightness-[0.5] object-cover object-right"
+      class="block lg:hidden fixed top-0 left-0 w-full h-full -z-10 filter brightness-[0.5] object-cover object-right"
       src={santiagoVertical}
       alt="Santiago de Chile"
     />
+
     <Image
-      class="hidden lg:block absolute top-0 left-0 h-[100dvh] -z-10 filter brightness-[0.5] object-cover object-[0%_30%]"
+      class="hidden lg:block fixed top-0 left-0 w-full h-full -z-10 filter brightness-[0.5] object-cover object-[0%_30%]"
       src={santiagoHorizontal}
       alt="Santiago de Chile"
     />
     
-    <div class="grid grid-rows-[minmax(0,3fr)_minmax(0,4fr)] h-full justify-items-center">
+    <div class="flex flex-col items-center w-full pt-20 lg:pt-0 lg:min-h-screen lg:grid lg:grid-rows-[minmax(0,2fr)_minmax(0,5fr)] justify-items-center">
       
-      <Image src={logo} alt="Logo PdA" class="self-center max-h-[50%]" />
+      <Image 
+        src={logo} 
+        alt="Logo LAC" 
+        class="self-center h-28 lg:h-48 w-auto mb-1 lg:mb-0 object-contain lg:self-end lg:pb-4" 
+      />
       
-      <div class="grid grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center h-full w-full">
+      <div class="grid grid-rows-[auto_1fr] lg:grid-rows-[minmax(0,1fr)_minmax(0,3fr)] justify-items-center w-full lg:self-start">
         
-        <div class="self-center">
+        <div class="self-center px-4">
           <h1 class="text-2xl font-title text-center text-[clamp(2rem,6vw,5rem)] font-black tracking-tighter leading-[0.95] text-shadow-lg/50 text-white">
             <slot name="title">
               2026 ICPC <span class="text-logo-orange whitespace-nowrap">LATIN AMERICA</span> CHAMPIONSHIP
@@ -45,7 +60,7 @@ const t = useTranslations(lang);
           </h1>
         </div>
 
-        <div class="flex flex-col items-center w-full">
+        <div class="flex flex-col items-center w-full pb-10">
           <h2 class="mt-2 text-md lg:text-lg text-center text-white text-shadow-black text-shadow-lg">
             <slot name="subtitle">
               <p>Santiago, Chile</p>
@@ -63,14 +78,21 @@ const t = useTranslations(lang);
             </Link>
           </div>
 
-          <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 mt-8 bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-6 max-w-[90vw] mx-auto shadow-lg">
+          <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-8 md:gap-12 mt-8 bg-white/60 backdrop-blur-sm rounded-2xl px-8 py-6 max-w-[90vw] mx-auto shadow-lg">
              
-             <div class="flex flex-col items-center text-center gap-3">
-                 <Image 
-                   src={logoHuawei} 
-                   alt="Huawei" 
-                   class="h-25 w-auto object-contain" 
-                 />
+             <div class="flex flex-col items-center text-center gap-3 w-full">
+                 <a 
+                   href="https://www.huawei.com" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="block transition-transform hover:scale-105"
+                 >
+                   <Image 
+                     src={logoHuawei} 
+                     alt="Huawei" 
+                     class="h-20 w-auto object-contain mx-auto" 
+                   />
+                 </a>
                  <span class="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wide leading-tight max-w-[240px]">
                    ICPC Diamond Multi-Regional Sponsor
                  </span>
@@ -78,19 +100,115 @@ const t = useTranslations(lang);
              
              <div class="hidden md:block h-24 w-px bg-gray-400"></div>
 
-             <div class="flex flex-col items-center text-center gap-3">
-                 <Image 
-                   src={logoJetBrains} 
-                   alt="JetBrains" 
-                   class="h-16 w-auto object-contain" 
-                 />
+             <div class="flex flex-col items-center text-center gap-3 w-full">
+                 <a 
+                   href="https://www.jetbrains.com" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="block transition-transform hover:scale-105"
+                 >
+                   <Image 
+                     src={logoJetBrains} 
+                     alt="JetBrains" 
+                     class="h-16 w-auto object-contain mx-auto" 
+                   />
+                 </a>
                  <span class="text-sm md:text-base font-bold text-gray-900 uppercase tracking-wide leading-tight max-w-[240px]">
                    ICPC Global Sponsor Programming Tools
                  </span>
              </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+             
+             <a 
+               href="https://www.itau.cl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoItau} alt="Itau" 
+                 class="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+
+             <a 
+               href="https://www.buk.cl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoBuk} alt="Buk" 
+                 class="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+
+             <a 
+               href="https://agendapro.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoAgendaPro} alt="AgendaPro" 
+                 class="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+
+             <a 
+               href="https://www.nic.cl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoNic} alt="Nic Chile" 
+                 class="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+
+             <a 
+               href="https://www.synopsys.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoSynopsys} alt="Synopsys" 
+                 class="h-10 md:h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a>
 
           </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/100 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+             <a 
+               href="https://www.uc.cl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={UC} alt="PUC" 
+                 class="h-24 md:h-26 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+             <a 
+               href="https://www.usm.cl" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={UTFSM} alt="UTFSM" 
+                 class="h-28 md:h-30 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+               />
+             </a>
           </div>
+
+        </div>
       </div>
     </div>
   </main>
