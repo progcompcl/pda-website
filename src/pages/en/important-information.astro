@@ -1,12 +1,88 @@
 ---
 import Page from "@/layouts/Page.astro";
+import { Image } from "astro:assets";
+import venueImage from "@/assets/venue.jpg"; 
 ---
 
-<Page title="Important information">
-  <h2 class="text-center">Important information</h2>
+<Page title="Important Information">
+  <div class="container mx-auto py-12 px-4">
+    
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold mb-4">Important Information</h1>
+      <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+        Here you will find important information for participants, such as visa requirements, 
+        participation costs, and venue details.
+      </p>
+    </div>
 
-  <p>
-    Here you will find important information for participants, such as: visa,
-    participation costs, etc.
-  </p>
+    <section class="max-w-5xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-center mb-8 text-primary">Venue</h2>
+      
+      <div class="bg-card border rounded-2xl shadow-sm overflow-hidden block">
+        
+        <div class="w-full relative h-64 md:h-[450px]">
+          <Image 
+            src={venueImage} 
+            alt="Hotel NovaPark Santiago" 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="p-6 md:p-8">
+          
+          <h3 class="text-2xl font-bold mb-2">Hotel NovaPark</h3>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            Located in the heart of Santiago centro, steps away from Santa Lucía Hill and the University of Chile subway station.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8">
+            
+            <div class="flex-1 flex flex-col justify-center gap-4">
+              <div class="space-y-3 text-sm md:text-base">
+                <p class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-primary shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>
+                      <span class="font-semibold block mb-1">Address:</span>
+                      Pdte. Juan Antonio Ríos 59,<br>Santiago, Región Metropolitana, Chile
+                    </span>
+                </p>
+                <p class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe text-primary shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>
+                      <span class="font-semibold">Website:</span>
+                      <a href="https://novapark.cl/" target="_blank" class="ml-2 text-blue-600 hover:underline">novapark.cl</a>
+                    </span>
+                </p>
+              </div>
+               <div class="mt-2 md:mt-0">
+                 <a 
+                   href="https://www.google.com/maps/place/Hotel+NovaPark/@-33.4442845,-70.6508446,17z/data=!3m1!4b1!4m9!1m2!2m1!1sHotel+Novapark+Santiago!3m5!1s0x9662c5a0b0b375a5:0x6667407367835318!8m2!3d-33.444289!4d-70.6482697!16s%2Fg%2F11h0lk_67?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D" 
+                   target="_blank"
+                   class="inline-flex items-center text-sm font-semibold text-primary hover:underline bg-primary/10 px-4 py-2 rounded-lg transition-colors hover:bg-primary/20"
+                 >
+                   Open in Google Maps →
+                 </a>
+              </div>
+            </div>
+
+            <div class="flex-1 h-64 bg-gray-200 rounded-xl overflow-hidden border shadow-inner">
+              <iframe 
+                src="https://www.google.com/maps?q=Hotel+Novapark+Santiago&output=embed"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="filter grayscale-[20%] contrast-[1.1] hover:filter-none transition-all"
+              >
+              </iframe>
+              </iframe>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    </div>
 </Page>

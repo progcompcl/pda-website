@@ -1,7 +1,6 @@
 ---
 import Page from "@/layouts/Page.astro";
 
-// Datos extraídos de la imagen del itinerario (4th - 8th March 2026)
 const schedule = [
   {
     day: "Day 1 (Tue 3)",
@@ -9,7 +8,7 @@ const schedule = [
     events: [
       { time: "", title: "Leaders arrival" },
       { time: "", title: "Leaders registration" },
-      { time: "Evening", title: "Leaders dinner @ Hotel" },
+      { time: "Evening", title: "Leaders dinner @ Nova Park" },
     ],
   },
   {
@@ -21,18 +20,24 @@ const schedule = [
       { time: "", title: "Leaders Meeting" },
       { time: "", title: "Leaders Lunch" },
       { time: "", title: "Leaders Excursion" },
-      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
     ],
   },
   {
     day: "Day 3 (Thu 5)",
     date: "March 5",
     events: [
-      { time: "Morning", title: "Breakfast - Hotel" },
+      { time: "Morning", title: "Breakfast - Nova Park" },
       {
         time: "10:00 - 12:00",
         title: "Opening Ceremony",
         location: "Auditorio Luksic UC",
+        highlight: true,
+      },
+      {
+        time: "",
+        title: "Sponsors' Tech Talks",
+        location: "",
         highlight: true,
       },
       { time: "", title: "Official Photo" },
@@ -48,15 +53,15 @@ const schedule = [
         title: "Sponsors Tech Arena",
         location: "Patio Testamento UTFSM SJ",
       },
-      { time: "", title: "Chill Zone @ Hotel" },
-      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+      { time: "", title: "Chill Zone @ Nova Park" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
     ],
   },
   {
     day: "Day 4 (Fri 6)",
     date: "March 6",
     events: [
-      { time: "Morning", title: "Breakfast - Hotel" },
+      { time: "Morning", title: "Breakfast - Nova Park" },
       {
         time: "10:00 - 12:00",
         title: "Warmup Contest - Contest Arena",
@@ -65,14 +70,14 @@ const schedule = [
       },
       { time: "", title: "Teams + Leaders Lunch" },
       { time: "Afternoon", title: "Teams City Excursion" },
-      { time: "Evening", title: "Teams + Leaders Dinner @ Hotel" },
+      { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
     ],
   },
   {
     day: "Day 5 (Sat 7)",
     date: "March 7",
     events: [
-      { time: "Morning", title: "Breakfast - Hotel" },
+      { time: "Morning", title: "Breakfast - Nova Park" },
       {
         time: "10:00 - 15:00",
         title: "LATAM Contest - Contest Arena",
@@ -103,7 +108,7 @@ const schedule = [
     day: "Day 6 (Sun 8)",
     date: "March 8",
     events: [
-      { time: "Morning", title: "Breakfast - Hotel" },
+      { time: "Morning", title: "Breakfast - Nova Park" },
       { time: "", title: "Teams + Leaders departure" },
     ],
   },
