@@ -2,6 +2,8 @@
 import Page from "@/layouts/Page.astro";
 import { Image } from "astro:assets";
 import venueImage from "@/assets/venue.jpg"; 
+import uc from "@/assets/campus_uc.jpg";
+import utfsm from "@/assets/campus_utfsm.jpg";
 ---
 
 <Page title="Important Information">
@@ -77,6 +79,146 @@ import venueImage from "@/assets/venue.jpg";
                 class="filter grayscale-[20%] contrast-[1.1] hover:filter-none transition-all"
               >
               </iframe>
+              </iframe>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="max-w-5xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-center mb-8 text-primary">Pontificia Universidad Católica de Chile</h2>
+      
+      <div class="bg-card border rounded-2xl shadow-sm overflow-hidden block">
+        
+        <div class="w-full relative h-64 md:h-[450px]">
+          <Image 
+            src={uc} 
+            alt="Campus San Joaquín UC" 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="p-6 md:p-8">
+          
+          <h3 class="text-2xl font-bold mb-2">Campus San Joaquín</h3>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            Located in Macul.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8">
+            
+            <div class="flex-1 flex flex-col justify-center gap-4">
+              <div class="space-y-3 text-sm md:text-base">
+                <p class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-primary shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>
+                      <span class="font-semibold block mb-1">Address:</span>
+                      Av. Vicuña Mackenna 4860,<br> Macul, Región Metropolitana, Chile
+                    </span>
+                </p>
+                <p class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe text-primary shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>
+                      <span class="font-semibold">Website:</span>
+                      <a href="https://uc.cl/" target="_blank" class="ml-2 text-blue-600 hover:underline">uc.cl</a>
+                    </span>
+                </p>
+              </div>
+               <div class="mt-2 md:mt-0">
+                 <a 
+                   href="https://www.google.com/maps/search/?api=1&query=Av.+Vicuña+Mackenna+4860,+Macul" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center text-sm font-semibold text-primary hover:underline bg-primary/10 px-4 py-2 rounded-lg transition-colors hover:bg-primary/20"
+                 >
+                   Open in Google Maps →
+                 </a>
+              </div>
+            </div>
+
+            <div class="flex-1 h-64 bg-gray-200 rounded-xl overflow-hidden border shadow-inner">
+              <iframe 
+                src="https://maps.google.com/maps?q=Av.+Vicuña+Mackenna+4860,+Macul&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="filter grayscale-[20%] contrast-[1.1] hover:filter-none transition-all"
+              >
+              </iframe>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto mb-16">
+      <h2 class="text-3xl font-bold text-center mb-8 text-primary">Universidad Técnica Federico Santa María</h2>
+      
+      <div class="bg-card border rounded-2xl shadow-sm overflow-hidden block">
+        
+        <div class="w-full relative h-64 md:h-[450px]">
+          <Image 
+            src={utfsm} 
+            alt="Campus San Joaquín UTFSM" 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="p-6 md:p-8">
+          
+          <h3 class="text-2xl font-bold mb-2">Campus San Joaquín</h3>
+          <p class="text-muted-foreground mb-6 max-w-3xl">
+            Located in San Joaquín.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-8">
+            
+            <div class="flex-1 flex flex-col justify-center gap-4">
+              <div class="space-y-3 text-sm md:text-base">
+                <p class="flex items-start gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin text-primary shrink-0"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>
+                      <span class="font-semibold block mb-1">Address:</span>
+                      Av. Vicuña Mackenna 3939,<br> San Joaquín, Región Metropolitana, Chile
+                    </span>
+                </p>
+                <p class="flex items-center gap-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe text-primary shrink-0"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    <span>
+                      <span class="font-semibold">Website:</span>
+                      <a href="https://usm.cl/" target="_blank" class="ml-2 text-blue-600 hover:underline">usm.cl</a>
+                    </span>
+                </p>
+              </div>
+               <div class="mt-2 md:mt-0">
+                 <a 
+                   href="https://www.google.com/maps/search/?api=1&query=Av.+Vicuña+Mackenna+3939,+San+Joaquín" 
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center text-sm font-semibold text-primary hover:underline bg-primary/10 px-4 py-2 rounded-lg transition-colors hover:bg-primary/20"
+                 >
+                   Open in Google Maps →
+                 </a>
+              </div>
+            </div>
+
+            <div class="flex-1 h-64 bg-gray-200 rounded-xl overflow-hidden border shadow-inner">
+              <iframe 
+                src="https://maps.google.com/maps?q=Av.+Vicuña+Mackenna+3939,+San+Joaquín&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="filter grayscale-[20%] contrast-[1.1] hover:filter-none transition-all"
+              >
               </iframe>
             </div>
             

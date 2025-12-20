@@ -16,6 +16,8 @@ import logoAgendaPro from "../../public/logoagendapro.png";
 import logoBuk from "../../public/logobuk.png";
 import logoNic from "@/assets/Nic-chile.png";
 import logoSynopsys from "@/assets/synopsys-logo.svg";
+import logoNubank from "@/assets/Nubank_logo.png";
+import plat from "@/assets/platinumsponsor.jpg";
 import UC from "../../public/PUC.png";
 import UTFSM from "../../public/UTFSM.jpg";
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
@@ -117,6 +119,20 @@ const t = useTranslations(lang);
                    ICPC Global Sponsor Programming Tools
                  </span>
              </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+             <a 
+               href="https://nubank.com.br/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoNubank} alt="Nu Bank" 
+                 class="h-14 md:h-14 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+               />
+             </a>
           </div>
 
           <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">

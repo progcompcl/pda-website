@@ -8,7 +8,13 @@ import huaweiLogo from "../../../public/Huawei.svg";
 import jetbrainsLogo from "../../../public/JetBrains.svg";
 import agendaproLogo from "../../../public/logoagendapro.png";
 import itauLogo from "../../../public/logoitau.png";
-import buklogo from "../../../public/logobuk.png"
+import buklogo from "../../../public/logobuk.png";
+import logoNubank from "@/assets/Nubank_logo.png";
+import plat from "@/assets/platinum.png";
+import diamond from "@/assets/diamond.png";
+import gold from "@/assets/gold.png";
+import silver from "@/assets/silver.png";
+import bronze from "@/assets/bronze.png";
 ---
 
 <Page title="Sponsors">
@@ -19,8 +25,9 @@ import buklogo from "../../../public/logobuk.png"
 
   <!-- Jetbrains -->
   <div
-    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://www.jetbrains.com/icpc/?utm_campaign=sponsor&utm_medium=email&utm_source=icpc"
       target="_blank"
@@ -34,6 +41,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={diamond}
+        alt="Diamond Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>JetBrains, ICPC Global Sponsor Programming Tools,</strong> is a global software company that creates professional 
       software development tools and advanced collaboration solutions trusted by more than 
@@ -51,8 +65,9 @@ import buklogo from "../../../public/logobuk.png"
 
   <!-- Huawei -->
   <div
-    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"
+    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl mt-16"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://career.huawei.com/reccampportal/portal5/index.html"
       target="_blank"
@@ -66,6 +81,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={diamond}
+        alt="Diamond Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>Huawei, ICPC Diamond Multi-Regional Sponsor,</strong> a leading global provider of information and communications 
       technology infrastructure and smart devices. With more than 207,000 employees and 
@@ -76,10 +98,47 @@ import buklogo from "../../../public/logobuk.png"
     </p>
   </div>
 
+  <!-- Nubank -->
+  <div
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl"
+  >
+  <div class="flex flex-col items-center text-center gap-3">
+    <a
+      href="https://nubank.com.br/"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={logoNubank}
+        alt="Nu Bank logo"
+        class="max-h-16 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+
+    <Image
+        src={plat}
+        alt="Platinum Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+      </div>
+    <p class="text-lg max-w-md mt-0">
+      <strong>Nu Bank</strong> is one of the world’s largest digital financial services platforms, 
+      serving 127 million customers in Brazil, Mexico, and Colombia. The company has spearheaded an 
+      industry transformation by leveraging data and proprietary technology to develop innovative products 
+      and services. Guided by its mission to combat complexity and empower people, Nu supports customers 
+      throughout their entire financial journey, promoting financial access and advancement through responsible 
+      lending practices and transparency.
+    </p>
+  </div>
+
   <!-- AgendaPro -->
   <div
     class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://agendapro.com/cl"
       target="_blank"
@@ -89,10 +148,17 @@ import buklogo from "../../../public/logobuk.png"
       <Image
         src={agendaproLogo}
         alt="AgendaPro logo"
-        class="max-h-24 max-w-full object-contain"
+        class="max-h-20 max-w-full object-contain"
         height={96}
       />
     </a>
+    <Image
+        src={gold}
+        alt="Gold Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>AgendaPro</strong> is a comprehensive management platform designed for beauty, 
       health, spa, and wellness businesses, allowing you to schedule appointments, manage 
@@ -107,6 +173,7 @@ import buklogo from "../../../public/logobuk.png"
   <div
     class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://www.itau.cl/personas"
       target="_blank"
@@ -120,6 +187,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={silver}
+        alt="Silver Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>Itaú</strong> is a leading financial institution in Latin America, a 
       subsidiary of the Brazilian group Itaú Unibanco, the largest private bank in 
@@ -134,6 +208,7 @@ import buklogo from "../../../public/logobuk.png"
   <div
     class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://www.buk.cl/"
       target="_blank"
@@ -147,6 +222,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={silver}
+        alt="Silver Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>Buk</strong> is a comprehensive human resources (HR) management 
       software platform that centralizes, digitizes, and automates the entire 
@@ -158,8 +240,9 @@ import buklogo from "../../../public/logobuk.png"
   
   <!-- Synopsys -->
   <div
-    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16"
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16 margin-bottom:10px"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://www.synopsys.com/"
       target="_blank"
@@ -173,6 +256,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={silver}
+        alt="Silver Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>Synopsys</strong> is a global leader in software and tools for designing
       advanced chips and systems, powering innovation in electronics, AI, and connected
@@ -184,6 +274,7 @@ import buklogo from "../../../public/logobuk.png"
   <div
     class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
   >
+  <div class="flex flex-col items-center text-center gap-3">
     <a
       href="https://www.nic.cl/"
       target="_blank"
@@ -197,6 +288,13 @@ import buklogo from "../../../public/logobuk.png"
         height={96}
       />
     </a>
+    <Image
+        src={bronze}
+        alt="Bronze Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
     <p class="text-lg max-w-md mt-0">
       <strong>NIC Chile</strong> manages the .CL domain, ensuring reliable and secure
       internet operations in Chile as part of the University of Chile.
