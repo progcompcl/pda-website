@@ -10,6 +10,8 @@ import agendaproLogo from "../../../public/logoagendapro.png";
 import itauLogo from "../../../public/logoitau.png";
 import buklogo from "../../../public/logobuk.png";
 import logoNubank from "@/assets/Nubank_logo.png";
+import MTIG from "@/assets/MTIG.png";
+import mindfree from "@/assets/mindfree.jpg";
 import plat from "@/assets/platinum.png";
 import diamond from "@/assets/diamond.png";
 import gold from "@/assets/gold.png";
@@ -300,4 +302,71 @@ import bronze from "@/assets/bronze.png";
       internet operations in Chile as part of the University of Chile.
     </p>
   </div>
+
+  <!-- MTIG -->
+  <div
+    class="flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-4xl mt-16 margin-bottom:10px"
+  >
+  <div class="flex flex-col items-center text-center gap-3">
+    <a
+      href="https://mtig.uc.cl/"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={MTIG}
+        alt="MTIG logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <Image
+        src={bronze}
+        alt="Bronze Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
+    <p class="text-lg max-w-md mt-0">
+      <strong>The MTIG program</strong> aims to provide solid, specialized technological knowledge while 
+      simultaneously situating it within the context of its application as a means to improve a company's 
+      competitive position and launch new businesses. The program's unique combination of management and 
+      technology is designed to produce leaders who can gain a competitive edge by maximizing the use of 
+      available technology across various development areas.
+    </p>
+  </div>
+
+  <!-- Mindfree -->
+  <div
+    class="flex flex-col md:flex-row-reverse items-center gap-4 md:gap-8 max-w-4xl"
+  >
+  <div class="flex flex-col items-center text-center gap-3">
+    <a
+      href="https://mindfree.cl/"
+      target="_blank"
+      rel="noopener"
+      class="bg-white dark:bg-white/50 rounded-xl shadow p-6 flex items-center justify-center w-64 h-32 border transition-transform hover:scale-105"
+    >
+      <Image
+        src={mindfree}
+        alt="Mindfree logo"
+        class="max-h-24 max-w-full object-contain"
+        height={96}
+      />
+    </a>
+    <Image
+        src={bronze}
+        alt="Bronze Sponsor"
+        class="max-h-40 max-w-full object-contain"
+        height={96}
+      />
+    </div>
+    <p class="text-lg max-w-md mt-0">
+      <strong>At Mindfree</strong> we are experts in the development of technological 
+      solutions geared towards the educational sector and market leaders in the 
+      administration and support of high-concurrency Moodle platforms.
+    </p>
+  </div>
+
 </Page>

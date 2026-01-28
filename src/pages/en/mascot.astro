@@ -1,0 +1,57 @@
+---
+import Page from "@/layouts/Page.astro";
+import { Image } from "astro:assets";
+import culpeoImage from "../../assets/culpeo.jpg"; 
+---
+
+<Page title="Mascot">
+  <h2 class="text-center">Mascot</h2>
+
+  <section>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet our Mascot</h2>
+          <p class="text-xl text-muted-foreground">
+            The official mascot of ICPC Latin America 2026: <span class="text-logo-orange font-bold">The Culpeo Fox</span>
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-8 bg-card border rounded-3xl p-6 md:p-10 shadow-sm">
+          
+          <div class="w-full">
+            <div class="relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-500">
+              <Image 
+                src={culpeoImage} 
+                alt="Culpeo Fox - ICPC Mascot" 
+                class="w-full h-[400px] object-cover"
+              />
+            </div>
+          </div>
+
+          <div class="w-full space-y-6">
+            <div>
+              <p class="text-muted-foreground leading-relaxed">
+                The <b>Culpeo Fox</b> perfectly embodies the spirit of those who participate in ICPC. 
+                It is an <b>>intelligent, curious, and adaptable animal,</b capable of moving with agility 
+                in challenging environments and solving problems with cunning, <b>much like what teams 
+                experience during the competition.</b>
+              </p>
+            </div>
+
+            <div>
+              <p class="text-muted-foreground leading-relaxed">
+                This fox is one of Chile's most representative animals, found throughout much of the country. 
+                The culpeo fox is found in almost all of Chile, from sea level to an altitude of 4,500 meters, 
+                adapting to a wide variety of environments such as the coast, the desert, the Andes mountains, 
+                forests, and the steppe, ranging from Arica to Magallanes and Tierra del Fuego, and is the 
+                largest fox in the country. Although it also lives in other parts of Latin America, its strong 
+                presence in Chile makes it <b>the perfect symbol for thisedition of the competition held in Santiago.</b> 
+                Thus, our mascot connects the host country's identity with the talent, diversity, and Latin American 
+                spirit that define ICPC.
+              </p>
+            </div>
+          </div>
+
+      </div>
+        </div>
+      </section>
+</Page>

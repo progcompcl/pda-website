@@ -17,9 +17,11 @@ import logoBuk from "../../public/logobuk.png";
 import logoNic from "@/assets/Nic-chile.png";
 import logoSynopsys from "@/assets/synopsys-logo.svg";
 import logoNubank from "@/assets/Nubank_logo.png";
-import plat from "@/assets/platinumsponsor.jpg";
+import MTIG from "@/assets/MTIG.png";
+import mindfree from "@/assets/mindfree.jpg";
 import UC from "../../public/PUC.png";
 import UTFSM from "../../public/UTFSM.jpg";
+import SCCC from "@/assets/cropped-SCCC-logo.png"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -137,7 +139,31 @@ const t = useTranslations(lang);
 
           <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
              
+            <a 
+               href="https://mtig.uc.cl/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={MTIG} alt="MTIG" 
+                 class="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a> 
+
              <a 
+               href="https://mindfree.cl/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={mindfree} alt="mindfree" 
+                 class="h-16 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity" 
+               />
+             </a> 
+            
+            <a 
                href="https://www.itau.cl" 
                target="_blank" 
                rel="noopener noreferrer"
@@ -197,6 +223,20 @@ const t = useTranslations(lang);
                />
              </a>
 
+          </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+             <a 
+               href="https://sccc.cl/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={SCCC} alt="SCCC" 
+                 class="h-24 md:h-26 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+               />
+             </a>
           </div>
 
           <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/100 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">

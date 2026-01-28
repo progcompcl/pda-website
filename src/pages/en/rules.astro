@@ -3,10 +3,160 @@ import Page from "@/layouts/Page.astro";
 ---
 
 <Page title="Promotion rules">
+  <h2 class="text-center">ICPC Latin America Regionals (LAR) 2025/26 - Rules</h2>
+  <p>
+    <a href="https://icpc.global/regionals/rules">The ICPC Regional Rules</a> apply to the 
+    Latin America region. The ICPC Latin America Region comprises the following six regionals:
+  </p>
+  <ul>
+    <li>
+      Brazil
+    </li>
+    <li>
+      Caribbean
+    </li>
+    <li>
+      Central America
+    </li>
+    <li>
+      Mexico
+    </li>
+    <li>
+      South America / North
+    </li>
+    <li>
+      South America / South
+    </li>
+  </ul>
+
+<p>The Regional Contest maintains the format used in the previous years:</p>
+<ul>
+  <li>It is distributed across the six regions.</li>
+  <li>
+    It occurs on the same date and time in each region (synchronized).
+  </li>
+  <li>
+    Participating teams at each site receive the same problem set.
+  </li>
+  <li>
+    Computers must use the official version of Maratona Linux as their operating system.
+  </li>
+  <li>
+    Judging is centralized through BOCA.
+  </li>
+  <li>
+    Results are aggregated at three levels: super-region, region, and country.
+  </li>
+</ul>
+<p>In 2025, the LAR Contest will occur on November 8th, 2025, in the following sites:</p>
+<ul>
+  <li>
+    Brazil: São Paulo.
+  </li>
+  <li>
+    The Caribbean region: Havana (Holguín), Santiago de los Caballeros (Dominican Republic), Mayagüez (Puerto Rico), St. Augustine (Trinidad and Tobago), Five Islands (Antigua and Barbuda).
+  </li>
+  <li>
+    Central America: San José (Costa Rica), San Salvador (El Salvador), Ciudad de Guatemala (Guatemala).
+  </li>
+  <li>
+    México: Guadalajara.
+  </li>
+  <li>
+    South America / North: Bogotá (Colombia), Caracas (Venezuela).
+  </li>
+  <li>
+    South America / South: Santa Fe (Argentina), Santa Cruz de la Sierra (Bolivia), Santiago (Chile), Arequipa (Perú), Lima (Perú).
+  </li>
+</ul>
+
+<p>Please refer to the regional websites for the specific rules for participation in the regional contest:</p>
+<ul>
+  <li>
+    <a href="http://maratona.sbc.org.br">Brazil</a>
+  </li>
+  <li>
+    <a href="https://www.icpccaribe.org">Caribbean</a>
+  </li>
+  <li>
+    <a href="https://icpccentroamerica.org">Central America</a>
+  </li>
+  <li>
+    <a href="https://eventos.iteso.mx/acm">Mexico</a>
+  </li>
+  <li>
+    <a href="https://icpc.global/regionals/finder/South-America-North">South America / North</a>
+  </li>
+  <li>
+    <a href="https://icpc.global/regionals/finder/SouthAmerica-South">South America / South</a>
+  </li>
+</ul>
+
   <h2 class="text-center">Promotion rules</h2>
 
-  <p>
-    This page defines the rules for promoting teams from the 2026 Latin American
-    Championship to the 2026 World Finals.
-  </p>
+  <h3>Promotion to the championship</h3>
+  <p><b>General rule:</b> A maximum of two teams from the same school can be promoted to the Championship, 
+    but the second team can qualify only within the N/2 performance slots (step 1 of the algorithm below).
+</p>
+<p>
+  Let N (40 ≤ N ≤ 60) be the number of teams to be promoted to the Championship, 
+  always a multiple of 4. For 2025-2026, N=40.
+</p>
+<ol>
+  <li>
+    [Performance Slots] N/2 slots should be allocated to the best-performing teams in the Regional Contest, observing the General Rule.
+  </li>
+  <li>
+    [Geographic Representation] The number of slots in this item is limited to the minimum between N/4 and the number of participating countries that do not yet have a qualified team, minus 1. Those slots are assigned, one at a time, to the best-performing team from a country that does not yet have a classified team, but only if that team solved at least one problem in the Regional Contest.
+  </li>
+  <li>
+    [Hosting institutions] If none of the schools hosting the Championship have a promoted team, a slot should be awarded to the best-performing team among the unpromoted schools. 
+  </li>
+  <li>
+    [Participation Slots] The remaining slots should be assigned to schools that have not yet promoted teams using the algorithm on the next page. Each time a region receives a slot, it should be assigned to the best-performing team in that region, in accordance with the General Rule.
+  </li>
+</ol>
+<p>
+  [Female Slots] Two additional slots will be assigned to female-only teams that are not yet qualified: First, one for the best-performing female team from the host country, and then one for the best-performing female team from the Latin America Region. These slots should be assigned in that order. The general rule above does not apply to those slots.
+</p>
+<p>
+  [Additional Host Slots] If one or more host institutions do not have a promoted team, the best-performing team from each institution may be invited to the Championship as additional slots (k slots).
+</p>
+<p>
+  Therefore, in the end, there will be N+2+k  teams in the Championship. 
+</p>
+<h3>
+  Promotion to the World Finals
+</h3>
+<p>
+Let “N_WF” be the number of slots for the World Finals assigned to Latin America. Considering the results in the Championship:
+</p>
+<ol>
+  <li>
+    The champion of each of the six regions receives a slot.
+  </li>
+  <li>
+    The remaining slots are assigned to the NW_F - 6 teams with the best overall performance.
+  </li>
+</ol>
+<p>
+  Only one team from a given institution may advance to the World Finals.
+</p>
+<h3>Prizes</h3>
+<ul>
+  <li>
+    The highest-ranked team will be recognized as the ICPC Latin America Champions at the Awards Ceremony and receive the trophy. 
+  </li>
+  <li>
+    Teams finishing in the top four positions will be awarded Gold Medals. Those teams finishing fifth through eighth place will be awarded Silver Medals. Those teams finishing ninth through twelfth place will receive Bronze Medals.
+  </li>
+  <li>
+    The highest-ranked team from each ICPC Latin America Region will be recognized with the appropriate title: Caribbean Regional Champions, Brazilian Champions, Mexican Champions, Central American Champions, South America South Champions, and South America North Champions. 
+  </li>
+</ul>
+<h3>Unforeseen cases</h3>
+<p>
+  Unforeseen cases not considered in these rules shall be resolved by the Latin America Steering Committee, 
+  composed of the Regional Contest Directors of the six regions and the Latin America Director of Contests.
+</p>
 </Page>
