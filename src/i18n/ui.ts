@@ -19,6 +19,7 @@ export const ui = {
     "nav.teams": "teams",
     "nav.teamsRegistration": "teams registration",
     "nav.schedule": "schedule",
+    "nav.buk-challenge": "buk arcade challenge ICPC",
     "nav.sponsors": "sponsors",
   },
   es: {
@@ -33,6 +34,7 @@ export const ui = {
     "nav.teams": "teams",
     "nav.teamsRegistration": "teams registration",
     "nav.schedule": "programa",
+    "nav.buk-challenge": "buk arcade challenge ICPC",
     "nav.sponsors": "patrocinadores",
   },
   pt: {
@@ -47,6 +49,7 @@ export const ui = {
     "nav.teams": "teams",
     "nav.teamsRegistration": "teams registration",
     "nav.schedule": "programação",
+    "nav.buk-challenge": "buk arcade challenge ICPC",
     "nav.sponsors": "patrocinadores",
   },
 } as const;

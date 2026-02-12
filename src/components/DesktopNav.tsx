@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import type { NavbarItem } from "@/types/nav";
 import { cn } from "@/lib/utils";
+import "../styles/desktop_nav.css";
 
 interface DesktopNavProps {
   navItems: NavbarItem[];
@@ -46,7 +47,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
     <NavigationMenu className={cn("hidden lg:flex")}>
       <NavigationMenuList className="gap-8">
         {navItems.map((link, index) => (
-          <NavigationMenuItem key={index}>
+          <NavigationMenuItem key={index} className="DesktopNavigationMenuItem">
             {link.submenu ? (
               <>
                 <NavigationMenuTrigger
