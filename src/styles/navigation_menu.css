@@ -1,3 +1,7 @@
 .DesktopNavigationMenuItem {
     width: max-content;
 }
+
+.MobileNavigationMenu {
+    overflow: auto;
+}

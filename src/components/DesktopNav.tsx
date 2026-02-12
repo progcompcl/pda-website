@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import type { NavbarItem } from "@/types/nav";
 import { cn } from "@/lib/utils";
-import "../styles/desktop_nav.css";
+import "@/styles/navigation_menu.css";
 
 interface DesktopNavProps {
   navItems: NavbarItem[];

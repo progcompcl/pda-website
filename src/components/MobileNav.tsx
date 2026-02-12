@@ -20,6 +20,7 @@ import {
   TEXT_CLASSES,
   LINK_CLASSES,
 } from "@/components/ui/navigation-menu";
+import "@/styles/navigation_menu.css"
 
 interface MobileNavProps {
   navItems: NavbarItem[];
@@ -74,7 +75,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({
         </SheetHeader>
 
         <NavigationMenu
-          className="w-full mt-0 flex-col justify-start"
+          className="w-full mt-0 flex-col justify-start MobileNavigationMenu"
           orientation="vertical"
         >
           <NavigationMenuList className="flex flex-col items-center gap-1 w-full">
