@@ -18,11 +18,12 @@ import logoNic from "@/assets/Nic-chile.png";
 import logoSynopsys from "@/assets/synopsys-logo.svg";
 import logoNubank from "@/assets/Nubank_logo.png";
 import logoCanals from "@/assets/canals.svg";
+import logoGobiernoRS from "../../public/gobierno_regional.png";
 import MTIG from "@/assets/MTIG.png";
 import mindfree from "@/assets/Mindfree.jpg";
 import UC from "../../public/PUC.png";
-import UTFSM from "../../public/UTFSM.jpg";
-import SCCC from "@/assets/cropped-SCCC-logo.png"
+import UTFSM from "../../public/UTFSM.png";
+import SCCC from "../../public/sccc.webp"
 import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -138,7 +139,7 @@ const t = useTranslations(lang);
              </a>
           </div>
 
-          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/70 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
              
             <a 
                href="https://mtig.uc.cl/" 
@@ -252,7 +253,7 @@ const t = useTranslations(lang);
              </a>
           </div>
 
-          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/100 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
              <a 
                href="https://www.uc.cl" 
                target="_blank" 
@@ -272,7 +273,21 @@ const t = useTranslations(lang);
              >
                <Image 
                  src={UTFSM} alt="UTFSM" 
-                 class="h-30 md:h-32 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+                 class="h-24 md:h-26 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
+               />
+             </a>
+          </div>
+
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10 mt-6 bg-white/60 backdrop-blur-sm rounded-xl px-8 py-4 max-w-[90vw] mx-auto shadow-md">
+             <a 
+               href="https://www.gobiernosantiago.cl/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="transition-transform hover:scale-105"
+             >
+               <Image 
+                 src={logoGobiernoRS} alt="Gobierno de Santiago" 
+                 class="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity" 
                />
              </a>
           </div>
