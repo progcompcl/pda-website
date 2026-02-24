@@ -1,7 +1,7 @@
 ---
 import Header from "../components/Header.astro";
-import santiagoVertical from "../assets/santiago-vertical.jpg";
-import santiagoHorizontal from "../assets/santiago-horizontal.jpg";
+import santiagoVertical from "../assets/santiago-vertical.jpeg";
+import santiagoHorizontal from "../assets/santiago-horizontal.jpeg";
 import Base from "../layouts/Base.astro";
 import { Link } from "@/components/ui/link";
 import { Info } from "lucide-react";
@@ -36,7 +36,7 @@ const t = useTranslations(lang);
   <main class="min-h-[100dvh] relative pb-12">
     
     <Image
-      class="block lg:hidden fixed top-0 left-0 w-full h-full -z-10 filter brightness-[0.5] object-cover object-right"
+      class="block lg:hidden fixed top-0 left-0 w-full h-full -z-10 filter brightness-[0.5] object-cover"
       src={santiagoVertical}
       alt="Santiago de Chile"
     />
