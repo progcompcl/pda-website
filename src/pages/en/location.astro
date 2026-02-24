@@ -1,12 +1,18 @@
 ---
 import Page from "@/layouts/Page.astro";
+
+import TravelGuide from "@/assets/TRAVEL GUIDE - ICPC 2026.pdf";
 ---
 
 <Page title="Location and tourism">
   <h2 class="text-center">Location and tourism</h2>
 
-  <p>
-    Here you will find information about Santiago, and their turistic
-    attractions.
-  </p>
+  <object
+    title="TRAVEL GUIDE - ICPC 2026"
+    type="application/pdf"
+    data={TravelGuide}
+    width="100%"
+    class="h-[75vh]">
+    Sorry, your browser doesn't support PDF preview. <a href={TravelGuide} download="TRAVEL GUIDE - ICPC 2026.pdf">Download travel guide</a>.
+  </object>
 </Page>
