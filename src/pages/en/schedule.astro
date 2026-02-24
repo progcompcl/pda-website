@@ -20,6 +20,7 @@ const schedule = [
       { time: "", title: "Leaders Meeting" },
       { time: "", title: "Leaders Lunch" },
       { time: "", title: "Leaders Excursion" },
+      { time: "", title: "Chill Zone @ Nova Park" },
       { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
     ],
   },
@@ -48,13 +49,9 @@ const schedule = [
         location: "Gimnasio UTFSM SJ",
         highlight: true,
       },
-      {
-        time: "",
-        title: "Sponsors Tech Arena",
-        location: "Patio Testamento UTFSM SJ",
-      },
       { time: "", title: "Chill Zone @ Nova Park" },
       { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
+      { time: "", title: "Chill Zone @ Nova Park" },
     ],
   },
   {
@@ -69,8 +66,13 @@ const schedule = [
         highlight: true,
       },
       { time: "", title: "Teams + Leaders Lunch" },
-      { time: "Afternoon", title: "Teams City Excursion" },
+      {
+        time: "Afternoon",
+        title: "Teams City Excursion",
+        sponsor: "Courtesy of Nubank"
+      },
       { time: "Evening", title: "Teams + Leaders Dinner @ Nova Park" },
+      { time: "", title: "Chill Zone @ Nova Park" },
     ],
   },
   {
@@ -80,7 +82,7 @@ const schedule = [
       { time: "Morning", title: "Breakfast - Nova Park" },
       {
         time: "10:00 - 15:00",
-        title: "LATAM Contest - Contest Arena",
+        title: "ICPC Latam Championship",
         location: "Gim UTFSM SJ",
         highlight: true,
         primary: true, // Para destacar más este evento
@@ -139,7 +141,7 @@ const schedule = [
               <ul class="space-y-4">
                 {day.events.map((event) => (
                   <li
-                    class={`flex flex-col ${event.primary ? "bg-blue-50/10 dark:bg-blue-900/20 -mx-2 p-2 rounded-md border border-blue-200/20" : ""}`}
+                    class={`flex flex-col ${event.primary ? "bg-blue-50/50 dark:bg-blue-900/20 -mx-2 p-2 rounded-md border border-blue-200/20" : ""}`}
                   >
                     {event.time && (
                       <span class="text-xs font-semibold text-muted-foreground mb-0.5">
@@ -152,8 +154,16 @@ const schedule = [
                       {event.title}
                     </span>
                     {event.location && (
-                      <span class="text-xs text-muted-foreground mt-0.5 italic">
-                        📍 {event.location}
+                      <span class="text-xs text-muted-foreground mt-0.5">
+                        📍
+                        <span class="italic">
+                          {event.location}
+                        </span>
+                      </span>
+                    )}
+                    {event.sponsor && (
+                      <span class="flex flex-col text-xs text-muted-foreground mt-0.5 font-bold bg-yellow-50/50 dark:bg-yellow-900/20 -mx-2 p-2 rounded-md border border-yellow-200/20">
+                        ⭐ {event.sponsor}
                       </span>
                     )}
                   </li>
