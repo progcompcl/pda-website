@@ -1,6 +1,9 @@
 ---
 import Page from "@/layouts/Page.astro";
 
+
+import ScheduleGuide from "@/assets/SCHEDULE - ICPC 2026.pdf";
+
 const schedule = [
   {
     day: "Tuesday March 3",
@@ -122,10 +125,19 @@ const schedule = [
     <div class="text-center mb-10">
       <h1 class="text-4xl font-bold mb-2">Schedule</h1>
       <p class="text-xl text-muted-foreground font-semibold text-logo-orange">
-        4th - 8th March 2026
+        3th - 8th March 2026
       </p>
       <p class="text-muted-foreground mt-2">Santiago, Chile</p>
     </div>
+
+    <object
+      title="SCHEDULE - ICPC 2026"
+      type="application/pdf"
+      data={ScheduleGuide}
+      width="100%"
+      class="h-[75vh] mb-10">
+      Sorry, your browser doesn't support PDF preview. <a href={ScheduleGuide} download="SCHEDULE - ICPC 2026.pdf">Download schedule</a>.
+    </object>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
