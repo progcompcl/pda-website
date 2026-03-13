@@ -27,6 +27,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  image: {
+    domains: ['drive.google.com'],
+  },
   integrations: [mdx(), react({ experimentalReactChildren: true })],
   server: { host: true },
 });

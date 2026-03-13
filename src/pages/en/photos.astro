@@ -1,0 +1,63 @@
+---
+import Page from "@/layouts/Page.astro";
+import { Image } from "astro:assets";
+
+import PhotosInfo from "@/assets/photos.json";
+
+
+const url_thumbnail = "https://drive.google.com/thumbnail?id=#&sz=w600";
+const url_lightbox = "https://drive.google.com/thumbnail?id=#&sz=w2000";
+const url_drive = "https://drive.google.com/file/d/#/view";
+const image_title = "Day #: Image $"
+
+---
+
+<style>
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<Page title="Travel guide">
+  <h2 class="text-center">Photo Galleries</h2>
+
+  <nav>
+    <a href="#day-1">Day 1</a>
+    <a href="#day-2">Day 2</a>
+  </nav>
+
+  {PhotosInfo.map((day, d) => (
+    <section id={day.id}>
+      <h4>{day.title}</h4>
+      <p>{day.subtitle}</p>
+      <p>({day.photos.length} photos)</p>
+
+      <div class="grid grid-cols-2 gap-1 md:grid-cols-3 gap-4">
+        {
+          day.photos.map((image, i) => {
+            const index = (d + 1) * 1000 + i;
+            const title = image_title.replace("#", (d + 1).toString()).replace("$", i.toString())
+            const url = url_thumbnail.replace('#', image.drive_id)
+
+            return (
+            <a class="item" href="#" data-index={index} title={title} class="m-0">
+              <Image 
+                src={url} 
+                quality="mid"
+                alt={title}
+                loading="lazy"
+                decoding="async"
+                height="180"
+                width="237"
+                layout="constrained"
+                class="!m-0 !rounded-base !border-transparent !hover:border-gray-300 !transition-all !duration-300 !ease-in-out !hover:shadow-lg"
+              />
+            </a>
+            )
+          })
+        }
+      </div>
+    </section>
+  ))}
+
+</Page>
