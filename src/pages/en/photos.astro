@@ -1,6 +1,8 @@
 ---
 import Page from "@/layouts/Page.astro";
 import { Image } from "astro:assets";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, ChevronUp, X } from "lucide-react";
 
 import PhotosInfo from "@/assets/photos.json";
 
@@ -16,31 +18,173 @@ const image_title = "Day #: Image $"
   section[id] {
     scroll-margin-top: 100px;
   }
+
+  a, a:visited {
+    color: var(--color-logo-negative);
+  }
+  
+  img {
+    color: var(--tw-prose-body);
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.88);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    box-sizing: border-box;
+  }
+  .lightbox.open {
+    display: flex;
+  }
+  .lightbox-content {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .lightbox-image {
+    max-width: 95vw;
+    max-height: 80vh;
+    border-radius: 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    background: white;
+  }
+  .lightbox-caption {
+    margin-top: 12px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    max-width: 90vw;
+    word-break: break-word;
+  }
+  .lightbox-link {
+    margin-top: 10px;
+  }
+  .lightbox-link a {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+  }
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    border: none;
+    cursor: pointer;
+    background: rgba(255,255,255,0.16);
+    color: white;
+    font-size: 28px;
+    line-height: 1;
+    padding: 12px 16px;
+    border-radius: 999px;
+  }
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255,255,255,0.28);
+  }
+  .lightbox-close {
+    top: -12px;
+    right: -12px;
+  }
+  .lightbox-prev {
+    left: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .lightbox-next {
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media (max-width: 900px) {
+    .lightbox-prev {
+      left: 8px;
+    }
+    .lightbox-next {
+      right: 8px;
+    }
+    .lightbox-close {
+      top: 8px;
+      right: 8px;
+    }
+    .lightbox-content {
+      width: 100%;
+    }
+  }
+  
+  .round-button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer !important;
+  }
+
+  .return {
+    position: fixed !important;
+    bottom: 2em !important;
+    right: 2em !important;
+    cursor: pointer !important;
+    all: unset;
+  }
+  .return:hover {
+    all: unset;
+  }
+  .return:visited {
+    all: unset;
+  }
 </style>
 
 <Page title="Travel guide">
   <h2 class="text-center">Photo Galleries</h2>
 
-  <nav>
-    <a href="#day-1">Day 1</a>
-    <a href="#day-2">Day 2</a>
-  </nav>
+  <div class="mb-20">
+    <ul>
+      {
+        PhotosInfo.map((day) => (
+          <li>
+            <a href={"#" + day.id} class="font-bold mr-1">
+              <span class="">{day.title}:</span>
+            </a>
+            <span>{day.subtitle} </span>
+            <span class="opacity-50 ml-1">({day.photos.length} photos)</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 
   {PhotosInfo.map((day, d) => (
     <section id={day.id}>
       <h4>{day.title}</h4>
       <p>{day.subtitle}</p>
-      <p>({day.photos.length} photos)</p>
 
       <div class="grid grid-cols-2 gap-1 md:grid-cols-3 gap-4">
         {
           day.photos.map((image, i) => {
-            const index = (d + 1) * 1000 + i;
-            const title = image_title.replace("#", (d + 1).toString()).replace("$", i.toString())
-            const url = url_thumbnail.replace('#', image.drive_id)
+            const title = image_title.replace("#", (d + 1).toString()).replace("$", (i + 1).toString())
+            const url = url_thumbnail.replace('#', image.drive_id);
+            const full = url_lightbox.replace('#', image.drive_id);
+            const drive = url_drive.replace('#', image.drive_id);
 
             return (
-            <a class="item" href="#" data-index={index} title={title} class="m-0">
+            <a
+              href="#"    
+              class="gallery-item"
+              data-full={full}
+              data-caption={title}
+              data-drive={drive}
+            >
               <Image 
                 src={url} 
                 quality="mid"
@@ -50,7 +194,7 @@ const image_title = "Day #: Image $"
                 height="180"
                 width="237"
                 layout="constrained"
-                class="!m-0 !rounded-base !border-transparent !hover:border-gray-300 !transition-all !duration-300 !ease-in-out !hover:shadow-lg"
+                class="!m-0"
               />
             </a>
             )
@@ -60,4 +204,102 @@ const image_title = "Day #: Image $"
     </section>
   ))}
 
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <div class="lightbox-content">
+      <Button variant='secondary' className="round-button rounded-full lightbox-close" id="lightboxClose" aria-label="Close">
+        <X className="h-[2rem] w-[2rem] rotate-0 scale-100"/>
+      </Button>
+      <Button variant='secondary' className="round-button rounded-full lightbox-prev" id="lightboxPrev" aria-label="Previous photo">
+        <ChevronLeft className="h-[2rem] w-[2rem] rotate-0 scale-100"/>
+      </Button>
+      <img id="lightboxImage" class="lightbox-image" src="" alt="">
+      <Button variant='secondary' className="round-button rounded-full lightbox-next" id="lightboxNext" aria-label="Next photo">
+        <ChevronRight className="h-[2rem] w-[2rem] rotate-0 scale-100"/>
+      </Button>
+      <div id="lightboxCaption" class="lightbox-caption"></div>
+      <div class="lightbox-link">
+        <a id="lightboxOpenDrive" href="#" target="_blank">Open in Google Drive</a>
+      </div>
+    </div>
+  </div>
+
+  <a href="#" class="return" aria-label="Return to top">
+    <Button variant='secondary' className="rounded-full round-button">
+      <ChevronUp className="h-[2rem] w-[2rem] rotate-0 scale-100"/>
+    </Button>
+  </a>
 </Page>
+
+<script type="module" is:inline>
+  const items = [...document.querySelectorAll(".gallery-item")];
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const lightboxOpenDrive = document.getElementById('lightboxOpenDrive');
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const photo = items[index];
+
+    lightboxImage.src = photo.dataset.full;
+    lightboxImage.alt = photo.dataset.caption;
+    lightboxCaption.textContent = photo.dataset.caption;
+    lightboxOpenDrive.href = photo.dataset.drive;
+
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightboxImage.src = '';
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % items.length;
+    openLightbox(currentIndex);
+  }
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showPrev();
+  });
+  lightboxNext.addEventListener('click', function(e) {
+    e.stopPropagation();
+    showNext();
+  });
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+</script>
