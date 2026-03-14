@@ -19,8 +19,11 @@ const image_title = "Day #: Image $"
     scroll-margin-top: 100px;
   }
 
-  a, a:visited {
-    color: var(--color-logo-negative);
+  .week-detail a {
+    color: var(--color-logo-negative) !important;
+    cursor: pointer !important;
+    text-decoration: underline !important;
+    all: unset;
   }
   
   img {
@@ -148,12 +151,12 @@ const image_title = "Day #: Image $"
 <Page title="Travel guide">
   <h2 class="text-center">Photo Galleries</h2>
 
-  <div class="mb-20">
+  <div class="mb-20 week-detail">
     <ul>
       {
         PhotosInfo.map((day) => (
           <li>
-            <a href={"#" + day.id} class="font-bold mr-1">
+            <a href={"#" + day.id} class="!font-bold !mr-1">
               <span class="">{day.title}:</span>
             </a>
             <span>{day.subtitle} </span>
