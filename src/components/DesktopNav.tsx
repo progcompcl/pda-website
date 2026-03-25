@@ -45,7 +45,7 @@ export const DesktopNav: React.FC<DesktopNavProps> = ({
 
   return (
     <NavigationMenu className={cn("hidden lg:flex")}>
-      <NavigationMenuList className="gap-8">
+      <NavigationMenuList className="gap-4">
         {navItems.map((link, index) => (
           <NavigationMenuItem key={index} className="DesktopNavigationMenuItem">
             {link.submenu ? (

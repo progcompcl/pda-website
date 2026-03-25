@@ -81,6 +81,11 @@ export const MobileNav: React.FC<MobileNavProps> = ({
           <NavigationMenuList className="flex flex-col items-center gap-1 w-full">
             {navItems.map((link, index) => (
               <NavigationMenuItem key={index} className="w-full">
+                <div
+                  role="separator"
+                  aria-orientation="horizontal"
+                  className="bg-border my-3 h-px w-full"
+                />
                 {link.submenu ? (
                   <>
                     <div className="text-muted-foreground px-2 py-1.5 text-sm font-medium text-center">
@@ -115,17 +120,6 @@ export const MobileNav: React.FC<MobileNavProps> = ({
                     {link.label}
                   </a>
                 )}
-
-                {/* Separator */}
-                {index < navItems.length - 1 &&
-                  ((!link.submenu && navItems[index + 1].submenu) ||
-                    (link.submenu && !navItems[index + 1].submenu)) && (
-                    <div
-                      role="separator"
-                      aria-orientation="horizontal"
-                      className="bg-border -mx-1 my-2 h-px w-full"
-                    />
-                  )}
               </NavigationMenuItem>
             ))}
           </NavigationMenuList>

@@ -1,6 +1,5 @@
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { cva } from "class-variance-authority";
 import { ChevronDownIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +7,6 @@ import { cn } from "@/lib/utils";
 function NavigationMenu({
   className,
   children,
-  viewport = true,
   ...props
 }: React.ComponentProps<typeof NavigationMenuPrimitive.Root> & {
   viewport?: boolean;
@@ -16,7 +14,6 @@ function NavigationMenu({
   return (
     <NavigationMenuPrimitive.Root
       data-slot="navigation-menu"
-      data-viewport={viewport}
       className={cn(
         "group/navigation-menu relative flex max-w-max flex-1 items-center justify-center",
         className,
@@ -24,7 +21,6 @@ function NavigationMenu({
       {...props}
     >
       {children}
-      {viewport && <NavigationMenuViewport />}
     </NavigationMenuPrimitive.Root>
   );
 }
@@ -66,12 +62,17 @@ function NavigationMenuTrigger({
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={cn("group", className)}
+      className={cn(
+        "flex items-center py-2",
+        "font-mono text-lg",
+        "hover:text-logo-orange-600 dark:hover:text-logo-negative",
+        className
+      )}
       {...props}
     >
       {children}
       <ChevronDownIcon
-        className="relative top-[1px] ml-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
+        className="size-3 transition-transform duration-300 group-data-[state=open]:rotate-180"
         aria-hidden="true"
       />
     </NavigationMenuPrimitive.Trigger>
@@ -85,28 +86,15 @@ function NavigationMenuContent({
   return (
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
-      className={className}
+      className={cn(
+        "absolute top-full left-0 mt-2 w-max min-w-max shadow-md",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out",
+        "data-[state=open]:fade-in data-[state=closed]:fade-out",
+        "data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95",
+        className
+      )}
       {...props}
     />
-  );
-}
-
-function NavigationMenuViewport({
-  className,
-  ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Viewport>) {
-  return (
-    <div
-      className={cn(
-        "absolute top-full left-25 isolate z-50 flex justify-center",
-      )}
-    >
-      <NavigationMenuPrimitive.Viewport
-        data-slot="navigation-menu-viewport"
-        className={cn("origin-top-center relative", className)}
-        {...props}
-      />
-    </div>
   );
 }
 
@@ -154,8 +142,6 @@ export {
   NavigationMenuContent,
   NavigationMenuTrigger,
   NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
   ACTIVE_CLASSES,
   TEXT_CLASSES,
   LINK_CLASSES,

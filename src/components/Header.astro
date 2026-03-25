@@ -56,6 +56,10 @@ const navigationLinks: NavbarItem[] = [
         href: getRelativeLocaleUrl(lang, "/location/"),
       },
       {
+        label: t("nav.schedule"),
+        href: getRelativeLocaleUrl(lang, "/schedule/"),
+      },
+      {
         label: t("nav.teams"),
         href: getRelativeLocaleUrl(lang, "/teams/"),
       },
@@ -66,20 +70,40 @@ const navigationLinks: NavbarItem[] = [
     ],
   },
   {
-    label: t("nav.schedule"),
-    href: getRelativeLocaleUrl(lang, "/schedule/"),
-  },
-  {
-    label: t("nav.buk-challenge"),
-    href: "https://buk-arcade-challenge.icpc.cl/",
+    label: t("nav.challenge"),
+    submenu: true,
+    items: [
+      {
+        label: t("nav.buk-challenge"),
+        href: "https://buk-arcade-challenge.icpc.cl/",
+      },
+      {
+        label: t("nav.codeforce-contest"),
+        href: "https://codeforces.com/group/8JufKtWW7p/contest/676963",
+      },
+    ]
   },
   {
     label: t("nav.sponsors"),
     href: getRelativeLocaleUrl(lang, "/sponsors/"),
   },
   {
-    label: t("nav.photos"),
-    href: getRelativeLocaleUrl(lang, "/photos/"),
+    label: t("nav.scores"),
+    href: "https://scorelatam.naquadah.com.br/pda26/",
+  },
+  {
+    label: t("nav.photos-videos"),
+    submenu: true,
+    items: [
+      {
+        label: t("nav.photos"),
+        href: getRelativeLocaleUrl(lang, "/photos/"),
+      },
+      {
+        label: t("nav.videos"),
+        href: getRelativeLocaleUrl(lang, "/videos/"),
+      },
+    ]
   },
 ];
 ---
