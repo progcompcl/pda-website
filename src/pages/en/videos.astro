@@ -15,6 +15,7 @@ import VideosInfo from "@/assets/videos.json";
           <h4>{video.title}</h4>
           <YouTube
             id={video.youtube_id}
+            poster=`https://i.ytimg.com/vi/${video.youtube_id}/hqdefault.jpg`
             posterQuality="max" 
             class="rounded-2xl aspect-video w-full"
           />
