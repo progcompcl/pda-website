@@ -2,6 +2,14 @@
 import Page from "@/layouts/Page.astro";
 import { Image } from "astro:assets";
 import culpeoImage from "../../assets/culpeo.jpg"; 
+
+import ImageMascot0 from "@/assets/mascot/0.jpg"
+import ImageMascot1 from "@/assets/mascot/1.jpg"
+import ImageMascot2 from "@/assets/mascot/2.jpg"
+
+
+const ImagesMascot = [ImageMascot1, ImageMascot2, ImageMascot0];
+
 ---
 
 <Page title="Mascot">
@@ -15,15 +23,19 @@ import culpeoImage from "../../assets/culpeo.jpg";
           </p>
         </div>
 
-        <div class="flex flex-col items-center gap-8 bg-card border rounded-3xl p-6 md:p-10 shadow-sm">
+        <div class="flex flex-col items-center bg-card border rounded-3xl p-6 md:p-10 shadow-sm">
           
           <div class="w-full">
-            <div class="relative rounded-2xl overflow-hidden shadow-lg transition-transform duration-500">
-              <Image 
-                src={culpeoImage} 
-                alt="Culpeo Fox - ICPC Mascot" 
-                class="w-full h-[400px] object-cover"
-              />
+            <div class="flex flex-nowrap gap-5 overflow-x-auto rounded-2xl">
+              {
+                ImagesMascot.map((image, i) => (
+                  <Image 
+                    src={image} 
+                    alt={`ICPC Mascot - Image ${i}`} 
+                    class="h-[300px] object-cover rounded-2xl !m-0"
+                  />
+                ))
+              }
             </div>
           </div>
 
@@ -31,7 +43,7 @@ import culpeoImage from "../../assets/culpeo.jpg";
             <div>
               <p class="text-muted-foreground leading-relaxed">
                 The <strong>Culpeo Fox</strong> perfectly embodies the spirit of those who participate in ICPC. 
-                It is an <strong>>intelligent, curious, and adaptable animal,</b capable of moving with agility 
+                It is an <strong>intelligent, curious, and adaptable animal,</strong> capable of moving with agility 
                 in challenging environments and solving problems with cunning, <strong>much like what teams 
                 experience during the competition.</strong>
               </p>
