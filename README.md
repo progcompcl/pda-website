@@ -14,3 +14,12 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [Astro's documentation](https://docs.astro.build).
+
+---
+---
+
+## ⚠️ Consideraciones
+
+### Agregar paquetes al proyecto
+
+Después de agregar un paquete al `package.json`, se debe ejecutar `pnpm install` para actualizar el archivo `pnpm-lock.yaml`. Este archivo es utilizado para instalar los paquetes al momento de hacer _build_ y _deploy_ de la aplicación en las GitHubs Actions.
